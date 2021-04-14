@@ -8,11 +8,12 @@
 通过[CocoaPods](https://cocoapods.org)方式安装`CrashKiller `,请在`Podfile `中指定：
 
 ```
-# 私有库，需要指定CocoaPods源(source)
+//私有库，需要指定CocoaPods源(source)
 source 'git@gitlab.mypaas.com.cn:appcloud/cocoapods/specs.git'
-#安装最新的tag版本
+//安装最新的tag版本
 pod 'CrashKiller'
-或直接使用master最新代码：
+
+//或直接使用master最新代码：
 pod 'CrashKiller',:git =>'git@gitlab.mypaas.com.cn:appcloud/cocoapods/MicBaseLib.git'
 ```
 
@@ -61,7 +62,6 @@ CrashKiller.debugLog = NO;
 
 ```js
 [CrashKiller startWihtLogDelegate:(id<CrashKillerLogDelegate>)self];
-
 - (void)onLog:(NSString*)log callStackSymbols:(NSArray <NSString *> *)callStackSymbols;
 {
     NSLog(@"%@\n   *** First throw call stack:%@",log,callStackSymbols);
