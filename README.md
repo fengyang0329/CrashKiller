@@ -68,10 +68,22 @@ CrashKiller.debugLog = NO;
 }
 ```
 
+## 可以防护的崩溃类型
 
-## Author
+- [x] Unrecognized Selector
 
-fengyang0329, longzh@mysoft.com.cn
+* [x]  KVO Crash
+
+* [x]  KVC Crash
+
+- [x] NSTimer
+ 
+- [x] NSNull
+
+- [x] NSArray,NSMutableArray,NSDictonary,NSMutableDictionary,NSString,NSMutableString
+
+
+
 
 ## License
 
