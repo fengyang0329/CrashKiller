@@ -72,9 +72,9 @@ CrashKiller.debugLog = NO;
 
 - [x] Unrecognized Selector
 
-* [x]  KVO Crash
+- [x]  KVO Crash
 
-* [x]  KVC Crash
+- [x]  KVC Crash
 
 - [x] NSTimer
  
