@@ -1,0 +1,6 @@
+framework module CrashKiller {
+  umbrella header "CrashKiller-umbrella.h"
+
+  export *
+  module * { export * }
+}

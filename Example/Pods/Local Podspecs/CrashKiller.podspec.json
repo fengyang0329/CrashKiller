@@ -1,0 +1,26 @@
+{
+  "name": "CrashKiller",
+  "version": "0.1.0",
+  "summary": "A short description of CrashKiller.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/fengyang0329/CrashKiller",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "fengyang0329": "longzh@mysoft.com.cn"
+  },
+  "source": {
+    "git": "https://github.com/fengyang0329/CrashKiller.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "CrashKiller/Classes/**/*",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ]
+}

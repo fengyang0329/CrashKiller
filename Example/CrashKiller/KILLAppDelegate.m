@@ -7,13 +7,31 @@
 //
 
 #import "KILLAppDelegate.h"
+#import <CrashKiller.h>
+#import "KILLViewController.h"
 
 @implementation KILLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [CrashKiller configDefendCrashType:CrashKillerDefendAll];
+    [CrashKiller startWihtLogDelegate:(id<CrashKillerLogDelegate>)self];
+    CrashKiller.terminateWhenException = YES;
+    CrashKiller.debugLog = NO;
+    
+    KILLViewController *vc = [[KILLViewController alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.window.rootViewController = navigation;
+    [self.window makeKeyAndVisible];
+
     return YES;
+}
+
+- (void)onLog:(NSString*)log callStackSymbols:(NSArray <NSString *> *)callStackSymbols;
+{
+    NSLog(@"***********onLog:%@\n   *** First throw call stack:%@",log,callStackSymbols);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

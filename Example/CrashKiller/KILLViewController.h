@@ -10,4 +10,5 @@
 
 @interface KILLViewController : UIViewController
 
+- (void)gg;
 @end

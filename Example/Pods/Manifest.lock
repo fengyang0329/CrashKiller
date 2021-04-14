@@ -1,0 +1,16 @@
+PODS:
+  - CrashKiller (0.1.0)
+
+DEPENDENCIES:
+  - CrashKiller (from `../`)
+
+EXTERNAL SOURCES:
+  CrashKiller:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CrashKiller: 15d9935fce8b51af9095da8a3428f6d39deb8136
+
+PODFILE CHECKSUM: 32226b53adea727653187111efe4d0b9a3b58fba
+
+COCOAPODS: 1.8.4

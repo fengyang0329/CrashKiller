@@ -24,6 +24,16 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		8E0EFC858E1664A90EFDB88D /* Pods_CrashKiller_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986547F29C1E09F8F4475AAE /* Pods_CrashKiller_Tests.framework */; };
+		D06483C42625413B007F0DCC /* TestArrayCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D06483C32625413B007F0DCC /* TestArrayCrashVC.m */; };
+		D06483CF26259CF8007F0DCC /* TestStringCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D06483CE26259CF8007F0DCC /* TestStringCrashVC.m */; };
+		D092373A2615A89A0094B18F /* CrashObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D09237392615A89A0094B18F /* CrashObject.m */; };
+		D092374F2615C9D40094B18F /* MOPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = D092374E2615C9D40094B18F /* MOPerson.m */; };
+		D09237612616C1700094B18F /* TestTimerCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D09237602616C1700094B18F /* TestTimerCrashVC.m */; };
+		D092376C2616FE480094B18F /* TestKVOCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D092376B2616FE480094B18F /* TestKVOCrashVC.m */; };
+		D09237742617014B0094B18F /* TestKVCCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D09237732617014B0094B18F /* TestKVCCrashVC.m */; };
+		D092377C26170CCD0094B18F /* TestUnrecognizedSelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D092377B26170CCD0094B18F /* TestUnrecognizedSelVC.m */; };
+		D09237FA261713F90094B18F /* TestContainerCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D09237F9261713F90094B18F /* TestContainerCrashVC.m */; };
+		D09238012617166E0094B18F /* TestDictionaryCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D09238002617166E0094B18F /* TestDictionaryCrashVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,16 +67,36 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		60E8DDC6EBCEE0B5FBCCC75F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		60E8DDC6EBCEE0B5FBCCC75F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		986547F29C1E09F8F4475AAE /* Pods_CrashKiller_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrashKiller_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51432B38FFF2B475D8792C7 /* Pods-CrashKiller_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Example.release.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Example/Pods-CrashKiller_Example.release.xcconfig"; sourceTree = "<group>"; };
-		BBB326CC56B3473D91FA9454 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		BBB326CC56B3473D91FA9454 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BF7C78F9904A5C78D546AA07 /* Pods-CrashKiller_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Example.debug.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Example/Pods-CrashKiller_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D06483C22625413B007F0DCC /* TestArrayCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestArrayCrashVC.h; sourceTree = "<group>"; };
+		D06483C32625413B007F0DCC /* TestArrayCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestArrayCrashVC.m; sourceTree = "<group>"; };
+		D06483CD26259CF8007F0DCC /* TestStringCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestStringCrashVC.h; sourceTree = "<group>"; };
+		D06483CE26259CF8007F0DCC /* TestStringCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestStringCrashVC.m; sourceTree = "<group>"; };
+		D09237382615A89A0094B18F /* CrashObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CrashObject.h; sourceTree = "<group>"; };
+		D09237392615A89A0094B18F /* CrashObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrashObject.m; sourceTree = "<group>"; };
+		D092374D2615C9D40094B18F /* MOPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MOPerson.h; sourceTree = "<group>"; };
+		D092374E2615C9D40094B18F /* MOPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MOPerson.m; sourceTree = "<group>"; };
+		D092375F2616C1700094B18F /* TestTimerCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTimerCrashVC.h; sourceTree = "<group>"; };
+		D09237602616C1700094B18F /* TestTimerCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTimerCrashVC.m; sourceTree = "<group>"; };
+		D092376A2616FE480094B18F /* TestKVOCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestKVOCrashVC.h; sourceTree = "<group>"; };
+		D092376B2616FE480094B18F /* TestKVOCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestKVOCrashVC.m; sourceTree = "<group>"; };
+		D09237722617014B0094B18F /* TestKVCCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestKVCCrashVC.h; sourceTree = "<group>"; };
+		D09237732617014B0094B18F /* TestKVCCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestKVCCrashVC.m; sourceTree = "<group>"; };
+		D092377A26170CCD0094B18F /* TestUnrecognizedSelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUnrecognizedSelVC.h; sourceTree = "<group>"; };
+		D092377B26170CCD0094B18F /* TestUnrecognizedSelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUnrecognizedSelVC.m; sourceTree = "<group>"; };
+		D09237F8261713F90094B18F /* TestContainerCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestContainerCrashVC.h; sourceTree = "<group>"; };
+		D09237F9261713F90094B18F /* TestContainerCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestContainerCrashVC.m; sourceTree = "<group>"; };
+		D09237FF2617166E0094B18F /* TestDictionaryCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDictionaryCrashVC.h; sourceTree = "<group>"; };
+		D09238002617166E0094B18F /* TestDictionaryCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDictionaryCrashVC.m; sourceTree = "<group>"; };
 		D1B090E95C700B2A3C1C2F18 /* Pods-CrashKiller_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Tests/Pods-CrashKiller_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB024CCE0DDD6A4B6A8E8DD8 /* Pods-CrashKiller_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Tests.release.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Tests/Pods-CrashKiller_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FBC4829D18C08BCD2967C17B /* CrashKiller.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = CrashKiller.podspec; path = ../CrashKiller.podspec; sourceTree = "<group>"; };
+		FBC4829D18C08BCD2967C17B /* CrashKiller.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CrashKiller.podspec; path = ../CrashKiller.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +167,15 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* KILLViewController.h */,
 				6003F5A6195388D20070C39A /* KILLViewController.m */,
+				D09237382615A89A0094B18F /* CrashObject.h */,
+				D09237392615A89A0094B18F /* CrashObject.m */,
+				D092374D2615C9D40094B18F /* MOPerson.h */,
+				D092374E2615C9D40094B18F /* MOPerson.m */,
+				D09237F7261713CE0094B18F /* Container */,
+				D092377926170CB40094B18F /* Unrecognized Selector */,
+				D09237712617013F0094B18F /* KVC */,
+				D09237692616FE340094B18F /* KVO */,
+				D092375E2616C13E0094B18F /* Timer */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -185,6 +224,57 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		D092375E2616C13E0094B18F /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				D092375F2616C1700094B18F /* TestTimerCrashVC.h */,
+				D09237602616C1700094B18F /* TestTimerCrashVC.m */,
+			);
+			name = Timer;
+			sourceTree = "<group>";
+		};
+		D09237692616FE340094B18F /* KVO */ = {
+			isa = PBXGroup;
+			children = (
+				D092376A2616FE480094B18F /* TestKVOCrashVC.h */,
+				D092376B2616FE480094B18F /* TestKVOCrashVC.m */,
+			);
+			name = KVO;
+			sourceTree = "<group>";
+		};
+		D09237712617013F0094B18F /* KVC */ = {
+			isa = PBXGroup;
+			children = (
+				D09237722617014B0094B18F /* TestKVCCrashVC.h */,
+				D09237732617014B0094B18F /* TestKVCCrashVC.m */,
+			);
+			name = KVC;
+			sourceTree = "<group>";
+		};
+		D092377926170CB40094B18F /* Unrecognized Selector */ = {
+			isa = PBXGroup;
+			children = (
+				D092377A26170CCD0094B18F /* TestUnrecognizedSelVC.h */,
+				D092377B26170CCD0094B18F /* TestUnrecognizedSelVC.m */,
+			);
+			name = "Unrecognized Selector";
+			sourceTree = "<group>";
+		};
+		D09237F7261713CE0094B18F /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				D09237F8261713F90094B18F /* TestContainerCrashVC.h */,
+				D09237F9261713F90094B18F /* TestContainerCrashVC.m */,
+				D09237FF2617166E0094B18F /* TestDictionaryCrashVC.h */,
+				D09238002617166E0094B18F /* TestDictionaryCrashVC.m */,
+				D06483C22625413B007F0DCC /* TestArrayCrashVC.h */,
+				D06483C32625413B007F0DCC /* TestArrayCrashVC.m */,
+				D06483CD26259CF8007F0DCC /* TestStringCrashVC.h */,
+				D06483CE26259CF8007F0DCC /* TestStringCrashVC.m */,
+			);
+			name = Container;
+			sourceTree = "<group>";
+		};
 		D2ACC2918C00A72E26A7DEB6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +283,6 @@
 				D1B090E95C700B2A3C1C2F18 /* Pods-CrashKiller_Tests.debug.xcconfig */,
 				DB024CCE0DDD6A4B6A8E8DD8 /* Pods-CrashKiller_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +347,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -364,9 +454,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D092373A2615A89A0094B18F /* CrashObject.m in Sources */,
+				D09237742617014B0094B18F /* TestKVCCrashVC.m in Sources */,
+				D092374F2615C9D40094B18F /* MOPerson.m in Sources */,
+				D092376C2616FE480094B18F /* TestKVOCrashVC.m in Sources */,
+				D09237612616C1700094B18F /* TestTimerCrashVC.m in Sources */,
 				6003F59E195388D20070C39A /* KILLAppDelegate.m in Sources */,
+				D06483CF26259CF8007F0DCC /* TestStringCrashVC.m in Sources */,
+				D06483C42625413B007F0DCC /* TestArrayCrashVC.m in Sources */,
+				D09238012617166E0094B18F /* TestDictionaryCrashVC.m in Sources */,
 				6003F5A7195388D20070C39A /* KILLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				D09237FA261713F90094B18F /* TestContainerCrashVC.m in Sources */,
+				D092377C26170CCD0094B18F /* TestUnrecognizedSelVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
