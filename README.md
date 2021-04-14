@@ -20,7 +20,7 @@ pod 'CrashKiller',:git =>'git@gitlab.mypaas.com.cn:appcloud/cocoapods/MicBaseLib
 
 ### 所有异常的分类，根据自身需要，自由组合
 
-```
+```js
 typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
 
     CrashKillerDefendUnrecognizedSelector = 1 << 1,
@@ -36,14 +36,14 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
 
 ### 配置异常类型并开启
 
-```
+```js
 [CrashKiller configDefendCrashType:CrashKillerDefendUnrecognizedSelector | CrashKillerDefendKVC];
 [CrashKiller startWihtLogDelegate:nil];
 ```
 
 ### 当异常时，默认程序不会中断，如果需要遇到异常时退出，需要如下设置:
 
-```
+```js
 //如果terminateWhenException设置为YES,发生异常时将终止应用程序
 //如果terminateWhenException设置为NO，则该异常只显示在控制台上，不会停止应用程序
 //默认NO
@@ -52,14 +52,14 @@ CrashKiller.terminateWhenException = YES;
 
 ### 如果需要关闭防护系统内部打印日志，需要如下设置
 
-```
+```js
 //YES:打印日志 NO:不打印日志；默认YES
 CrashKiller.debugLog = NO;
 ```
 
 ### 如果需要记录日志，在开启的时候注册协议，并实现`CrashKillerLogDelegate`
 
-```
+```js
 [CrashKiller startWihtLogDelegate:(id<CrashKillerLogDelegate>)self];
 
 - (void)onLog:(NSString*)log callStackSymbols:(NSArray <NSString *> *)callStackSymbols;
