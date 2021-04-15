@@ -72,30 +72,24 @@ CrashKiller.debugLog = NO;
 
 ## <a name="高频crash"></a>可以防护的崩溃类型
 
-- [x] Unrecognized Selector（找不到对象方法或者类方法的实现）
-<br>
+- [x] Unrecognized Selector（找不到对象方法或者类方法的实现）<br>
 - [x]  KVO Crash
-
 	1. KVO 添加次数和移除次数不匹配：
 		* 移除未注册的观察者，导致崩溃
 		* 重复移除多次，移除次数多于添加次数，导致崩溃
 		* 重复添加多次，虽然不会崩溃，但是发生改变时，也同时会被观察多次
 	2. 被观察者提前被释放，被观察者在 dealloc 时仍然注册着 KVO，导致崩溃。 例如：被观察者是局部变量的情况（iOS 10 及之前会崩溃）。
 	3. 添加了观察者，但未实现 observeValueForKeyPath:ofObject:change:context: 方法，导致崩溃。
-	4. 添加或者移除时 keypath == nil，导致崩溃。
-<br>
+	4. 添加或者移除时 keypath == nil，导致崩溃。<br>
 - [x]  KVC Crash
 	1. key 不是对象的属性，造成崩溃。
 	2. keyPath 不正确，造成崩溃。
 	3. key 为 nil，造成崩溃。
-	4. value 为 nil，为非对象设值，造成崩溃。
-<br>
+	4. value 为 nil，为非对象设值，造成崩溃。<br>
 - [x] NSTimer
-	1. 注册了没有主动释放，会导致内存泄露，多线程中有可能会闪退
-<br>
+	1. 注册了没有主动释放，会导致内存泄露，多线程中有可能会闪退 <br>
 - [x] NSNull
-	1. null类型调用其他类型（如NSString,NSNumber）方法，找不到方法
-<br>
+	1. null类型调用其他类型（如NSString,NSNumber）方法，找不到方法 <br>
 - [x] NSArray,NSMutableArray,NSDictonary,NSMutableDictionary,NSString,NSMutableString
 	1. 数组越界，参数为nil等
 
