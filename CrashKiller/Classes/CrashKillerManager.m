@@ -90,7 +90,8 @@ BOOL crashKillerDebugLog = YES;
 
         log = [NSString stringWithFormat:@"**** crash reason: '%@'",reason];
     }
-    CrashKillerLOG(@"%@",log);
+    NSString *detailLog = [log stringByAppendingFormat:@"\n   *** First throw call stack:%@",callStackSymbols];
+    CrashKillerLOG(@"%@",detailLog);
     //如果外部注册了logDelegate，则将log给出
     if (self.logDelegate && [self.logDelegate respondsToSelector:@selector(onLog:callStackSymbols:)])
     {

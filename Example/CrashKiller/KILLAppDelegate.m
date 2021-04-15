@@ -19,7 +19,7 @@
     [CrashKiller configDefendCrashType:CrashKillerDefendAll];
     [CrashKiller start];
 //    CrashKiller.terminateWhenException = YES;
-    CrashKiller.debugLog = NO;
+//    CrashKiller.debugLog = NO;
     
     KILLViewController *vc = [[KILLViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
