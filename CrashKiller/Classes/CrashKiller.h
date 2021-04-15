@@ -52,10 +52,15 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
 + (void)configDefendCrashType:(CrashKillerDefendCrashType)type;
 
 //开启崩溃防护
-+ (void)startWihtLogDelegate:(id<CrashKillerLogDelegate>)logDelegate;
++ (void)start;
 
-//关闭崩溃防护
-+ (void)stop;
+
+/*
+ 打印log的回调代理
+ 建议在start方法前调用，否则可能会有部分日志缺失
+ */
++ (void)handleCrashLog:(id<CrashKillerLogDelegate>)logDelegate;
+
 
 @end
 

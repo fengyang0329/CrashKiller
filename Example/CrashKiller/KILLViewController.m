@@ -9,6 +9,7 @@
 #import "KILLViewController.h"
 #include <objc/runtime.h>
 #import "CrashObject.h"
+#import <CrashKiller.h>
 
 
 @interface Person : NSObject
@@ -37,12 +38,11 @@
     NSArray *_titleArray;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     self.title = @"防崩溃测试";
-
-    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@""];
     _titleArray = @[
         @{
             @"title" : @"Unrecognized Selector Crash",
@@ -104,10 +104,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
     NSDictionary *item =  _titleArray[indexPath.row];
+    NSString *title = item[@"title"];
     Class cls = NSClassFromString([item objectForKey:@"class"]);
     UIViewController *vc = (UIViewController *)[[cls alloc] init];
-    vc.title = item[@"title"];;
+    vc.title = title;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

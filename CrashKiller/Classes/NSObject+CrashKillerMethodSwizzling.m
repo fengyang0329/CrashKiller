@@ -37,6 +37,7 @@ void crashKillerSwizzlingClassMethod(Class class, SEL originalSelector, SEL swiz
                                         method_getTypeEncoding(swizzledMethod));
 
     if (didAddMethod) {
+
         class_replaceMethod(metacls,
                             swizzledSelector,
                             method_getImplementation(originalMethod),

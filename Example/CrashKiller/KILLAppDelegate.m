@@ -15,9 +15,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [CrashKiller handleCrashLog:(id<CrashKillerLogDelegate>)self];
     [CrashKiller configDefendCrashType:CrashKillerDefendAll];
-    [CrashKiller startWihtLogDelegate:(id<CrashKillerLogDelegate>)self];
-    CrashKiller.terminateWhenException = YES;
+    [CrashKiller start];
+//    CrashKiller.terminateWhenException = YES;
     CrashKiller.debugLog = NO;
     
     KILLViewController *vc = [[KILLViewController alloc] init];

@@ -100,7 +100,7 @@ BOOL crashKillerDebugLog = YES;
         
 //        NSException *excp = [NSException exceptionWithName:@"Error" reasonlog userInfo:nil];
 //        [excp raise];
-//        NSAssert(NO, log);
+        NSAssert(NO, log);
     }
 }
 

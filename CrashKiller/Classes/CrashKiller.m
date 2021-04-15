@@ -7,6 +7,7 @@
 
 #import "CrashKiller.h"
 #import "CrashKillerManager.h"
+#import "NSObject+KillSelector.h"
 
 
 @implementation CrashKiller
@@ -26,17 +27,24 @@
 }
 
 //开启崩溃防护
-+ (void)startWihtLogDelegate:(id<CrashKillerLogDelegate>)logDelegate
++ (void)start
 {
     [CrashKillerManager shareManager].isStart = YES;
-    [CrashKillerManager shareManager].logDelegate = (id <CrashKillerLogDelegate>)logDelegate;
     [[CrashKillerManager shareManager] registerExceptionDefend];
 }
 
 //关闭崩溃防护
 + (void)stop
 {
+    /*暂无好的全局关闭方法，只能在所有交换方法做前置判断，如果没有开启防护，则不进行方法交换
+     后续优化
+     */
     [CrashKillerManager shareManager].isStart = NO;
+}
+
++ (void)handleCrashLog:(id<CrashKillerLogDelegate>)logDelegate
+{
+    [CrashKillerManager shareManager].logDelegate = (id <CrashKillerLogDelegate>)logDelegate;
 }
 
 + (void)setDebugLog:(BOOL)debugLog

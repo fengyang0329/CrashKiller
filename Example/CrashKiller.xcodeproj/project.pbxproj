@@ -96,7 +96,7 @@
 		D09238002617166E0094B18F /* TestDictionaryCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDictionaryCrashVC.m; sourceTree = "<group>"; };
 		D1B090E95C700B2A3C1C2F18 /* Pods-CrashKiller_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Tests/Pods-CrashKiller_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB024CCE0DDD6A4B6A8E8DD8 /* Pods-CrashKiller_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Tests.release.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Tests/Pods-CrashKiller_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		FBC4829D18C08BCD2967C17B /* CrashKiller.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CrashKiller.podspec; path = ../CrashKiller.podspec; sourceTree = "<group>"; };
+		FBC4829D18C08BCD2967C17B /* CrashKiller.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CrashKiller.podspec; path = ../CrashKiller.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

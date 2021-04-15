@@ -28,7 +28,7 @@
      */
     if (key == nil) {
 
-        NSString *func = [NSString stringWithFormat:@"[<%@ %p> setValue:forUndefinedKey:]",NSStringFromClass([self class]),self];
+        NSString *func = [NSString stringWithFormat:@"[<%@ %p> setValue:forKey:]",NSStringFromClass([self class]),self];
         NSString *reason = @"attempt to set a value for a nil key";
         [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
         return;
@@ -58,7 +58,7 @@
     /*
      reason: '[<CrashObject 0x6000021705f0> valueForUndefinedKey:]: this class is not key value coding-compliant for the key address.'
      */
-    NSString *func = [NSString stringWithFormat:@"[<%@ %p> setValue:forUndefinedKey:]",NSStringFromClass([self class]),self];
+    NSString *func = [NSString stringWithFormat:@"[<%@ %p> valueForUndefinedKey:]",NSStringFromClass([self class]),self];
     NSString *reason = @"this class is not key value coding-compliant for the key address.";
     [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
     return self;

@@ -87,6 +87,7 @@
 }
 
 + (NSTimer*)crashKiller_scheduledTimerWithTimeInterval:(NSTimeInterval)time target:(id)aTarget selector:(SEL)aSelector userInfo:(nullable id)userInfo repeats:(BOOL)yesOrNo{
+
     if (!yesOrNo) {
         return [self crashKiller_scheduledTimerWithTimeInterval:time target:aTarget selector:aSelector userInfo:userInfo repeats:yesOrNo];
     }

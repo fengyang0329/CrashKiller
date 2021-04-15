@@ -30,8 +30,8 @@
 
 
 + (id)crashKiller_forwardingTargetForSelector:(SEL)aSelector {
-    SEL forwarding_sel = @selector(forwardingTargetForSelector:);
 
+    SEL forwarding_sel = @selector(forwardingTargetForSelector:);
     // 获取 NSObject 的消息转发方法
     Method root_forwarding_method = class_getClassMethod([NSObject class], forwarding_sel);
     // 获取 当前类 的消息转发方法
