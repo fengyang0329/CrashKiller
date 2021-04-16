@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CrashKiller.h>
+#import <CrashKiller/CrashKiller.h>
 
 //#define SLOG(fmt, ...) if (crashKillerDebugLog) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #define CrashKillerLOG(fmt, ...) if (crashKillerDebugLog) NSLog((fmt), ##__VA_ARGS__)

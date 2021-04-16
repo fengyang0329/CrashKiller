@@ -155,10 +155,10 @@
 - (void)testKVOCrash4 {
     // 崩溃日志： -[__NSCFConstantString characterAtIndex:]: Range or index out of bounds
     CrashObject *obj = [[CrashObject alloc] init];
-//    [self addObserver: obj
-//           forKeyPath: @""
-//              options: NSKeyValueObservingOptionNew
-//              context: nil];
+    [self addObserver: obj
+           forKeyPath: @""
+              options: NSKeyValueObservingOptionNew
+              context: nil];
 
         [self removeObserver:obj forKeyPath:@""];
 }

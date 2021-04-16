@@ -87,7 +87,9 @@
     // 崩溃日志：[<KVCCrashObject 0x600000d48ee0> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key XXX.;
 
     CrashObject *objc = [[CrashObject alloc] init];
-    [objc setValue:@"value" forKey:@"address"];
+//    [objc setValue:@"value" forKey:@"address"];
+    [objc setValue:@"value" forKey:@"123"];
+
 }
 
 /**

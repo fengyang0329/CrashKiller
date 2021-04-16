@@ -49,7 +49,7 @@
      reason: '[<CrashObject 0x600000315e70> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key address.'
      */
     NSString *func = [NSString stringWithFormat:@"[<%@ %p> setValue:forUndefinedKey:]",NSStringFromClass([self class]),self];
-    NSString *reason = @"this class is not key value coding-compliant for the key address.";
+    NSString *reason = [NSString stringWithFormat:@"this class is not key value coding-compliant for the key %@.",key];
     [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
 }
 
@@ -59,7 +59,7 @@
      reason: '[<CrashObject 0x6000021705f0> valueForUndefinedKey:]: this class is not key value coding-compliant for the key address.'
      */
     NSString *func = [NSString stringWithFormat:@"[<%@ %p> valueForUndefinedKey:]",NSStringFromClass([self class]),self];
-    NSString *reason = @"this class is not key value coding-compliant for the key address.";
+    NSString *reason = [NSString stringWithFormat:@"this class is not key value coding-compliant for the key %@.",key];
     [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
     return self;
 }
