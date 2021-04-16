@@ -16,7 +16,7 @@ source 'git@gitlab.mypaas.com.cn:appcloud/cocoapods/specs.git'
 pod 'CrashKiller'
 
 //或直接使用master最新代码：
-pod 'CrashKiller',:git =>'git@gitlab.mypaas.com.cn:appcloud/cocoapods/MicBaseLib.git'
+pod 'CrashKiller',:git =>'git@gitlab.mypaas.com.cn:appcloud/cocoapods/CrashKiller.git'
 ```
 
 ## 如何使用
