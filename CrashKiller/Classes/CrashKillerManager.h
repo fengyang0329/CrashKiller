@@ -26,6 +26,7 @@ extern BOOL crashKillerDebugLog;
 @property(nonatomic,assign)BOOL isStart;
 @property(nonatomic,weak)id <CrashKillerLogDelegate> logDelegate;
 @property(nonatomic,assign)CrashKillerDefendCrashType defendCrashType;
+@property(nonatomic,strong)NSMutableSet *selectorClassWhiteList;
 
 +(instancetype)shareManager;
 - (void)registerExceptionDefend;

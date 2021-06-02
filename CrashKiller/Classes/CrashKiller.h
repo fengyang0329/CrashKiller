@@ -51,6 +51,13 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
  */
 + (void)configDefendCrashType:(CrashKillerDefendCrashType)type;
 
+/*
+ 类名白名单
+ 白名单里的类不做处理
+ [CrashKiller addSelectorClassWhiteList:@[NSClassFromString(@"MAUserLocation")]];
+ */
++ (void)addSelectorClassWhiteList:(NSArray*)objects;
+
 //开启崩溃防护
 + (void)start;
 

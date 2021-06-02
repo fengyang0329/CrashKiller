@@ -36,6 +36,7 @@ BOOL crashKillerDebugLog = YES;
 
         _terminateWhenException = NO;
         _defendCrashType = CrashKillerDefendAll;
+        _selectorClassWhiteList = [NSMutableSet set];
     }
     return self;
 }

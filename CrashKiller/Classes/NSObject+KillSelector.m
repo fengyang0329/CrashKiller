@@ -31,6 +31,9 @@
 
 + (id)crashKiller_forwardingTargetForSelector:(SEL)aSelector {
 
+    if ([[CrashKillerManager shareManager].selectorClassWhiteList containsObject:[self class]]) {
+        return [self crashKiller_forwardingTargetForSelector:aSelector];
+    }
     SEL forwarding_sel = @selector(forwardingTargetForSelector:);
     // 获取 NSObject 的消息转发方法
     Method root_forwarding_method = class_getClassMethod([NSObject class], forwarding_sel);
@@ -80,6 +83,9 @@
 
 - (id)crashKiller_forwardingTargetForSelector:(SEL)aSelector {
 
+    if ([[CrashKillerManager shareManager].selectorClassWhiteList containsObject:[self class]]) {
+        return [self crashKiller_forwardingTargetForSelector:aSelector];
+    }
     SEL forwarding_sel = @selector(forwardingTargetForSelector:);
     // 获取 NSObject 的消息转发方法
     Method root_forwarding_method = class_getInstanceMethod([NSObject class], forwarding_sel);

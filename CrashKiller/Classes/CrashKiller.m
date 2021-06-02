@@ -52,5 +52,9 @@
     crashKillerDebugLog = debugLog;
 }
 
++ (void)addSelectorClassWhiteList:(NSArray*)objects
+{
+    [[CrashKillerManager shareManager].selectorClassWhiteList addObjectsFromArray:objects];
+}
 
 @end
