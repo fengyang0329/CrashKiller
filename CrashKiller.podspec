@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CrashKiller'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'A short description of CrashKiller.'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://gitlab.mypaas.com.cn/appcloud/cocoapods/CrashKiller'
+  s.homepage         = 'git@gitlab.mypaas.com.cn:appcloud/cocoapods/CrashKiller'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'fengyang0329' => 'longzh@mysoft.com.cn' }
-  s.source           = { :git => 'https://gitlab.mypaas.com.cn/appcloud/cocoapods/CrashKiller.git', :tag => s.version.to_s }
+  s.source           = { :git => 'git@gitlab.mypaas.com.cn:appcloud/cocoapods/CrashKiller.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
