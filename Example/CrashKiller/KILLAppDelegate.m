@@ -18,6 +18,10 @@
     [CrashKiller handleCrashLog:(id<CrashKillerLogDelegate>)self];
     [CrashKiller configDefendCrashType:CrashKillerDefendAll];
     [CrashKiller start];
+//    //验证多次开启
+//    [CrashKiller start];
+//    [CrashKiller start];
+
 //    CrashKiller.terminateWhenException = YES;
 //    CrashKiller.debugLog = NO;
     

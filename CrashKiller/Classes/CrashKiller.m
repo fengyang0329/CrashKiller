@@ -29,8 +29,10 @@
 //开启崩溃防护
 + (void)start
 {
-    [CrashKillerManager shareManager].isStart = YES;
-    [[CrashKillerManager shareManager] registerExceptionDefend];
+    if (![CrashKillerManager shareManager].isStart) {
+        [CrashKillerManager shareManager].isStart = YES;
+        [[CrashKillerManager shareManager] registerExceptionDefend];
+    }
 }
 
 //关闭崩溃防护

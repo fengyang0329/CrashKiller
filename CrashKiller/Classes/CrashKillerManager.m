@@ -16,8 +16,11 @@
 #import "NSString+KillCrash.h"
 #import "NSMutableString+KillCrash.h"
 
-
+#if DEBUG
 BOOL crashKillerDebugLog = YES;
+#else
+BOOL crashKillerDebugLog = NO;
+#endif
 
 @implementation CrashKillerManager
 
@@ -86,10 +89,10 @@ BOOL crashKillerDebugLog = YES;
 
 - (void)printLogWithFunction:(NSString *)func reason:(NSString *)reason callStackSymbols:(NSArray <NSString *> *)callStackSymbols
 {
-    NSString *log = [NSString stringWithFormat:@"**** crash reason: '*** -%@: %@'",func,reason];
+    NSString *log = [NSString stringWithFormat:@"-%@: %@",func,reason];
     if (func.length == 0) {
 
-        log = [NSString stringWithFormat:@"**** crash reason: '%@'",reason];
+        log = [NSString stringWithFormat:@"%@",reason];
     }
     NSString *detailLog = [log stringByAppendingFormat:@"\n   *** First throw call stack:%@",callStackSymbols];
     CrashKillerLOG(@"%@",detailLog);

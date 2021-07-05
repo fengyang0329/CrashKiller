@@ -58,7 +58,9 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
  */
 + (void)addSelectorClassWhiteList:(NSArray*)objects;
 
-//开启崩溃防护
+/*开启崩溃防护
+ 已经开启的情况下，再次调用直接return
+*/
 + (void)start;
 
 
