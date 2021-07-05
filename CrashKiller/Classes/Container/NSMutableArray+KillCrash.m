@@ -21,6 +21,8 @@
     [NSObject crashKillerMethodSwizzlingInstanceMethod:@selector(removeObjectsInRange:) withMethod:@selector(crashKiller_removeObjectsInRange:) withClass:__NSArrayM];
     [NSObject crashKillerMethodSwizzlingInstanceMethod:@selector(replaceObjectAtIndex:withObject:) withMethod:@selector(crashKiller_replaceObjectAtIndex:withObject:) withClass:__NSArrayM];
     [NSObject crashKillerMethodSwizzlingInstanceMethod:@selector(objectAtIndex:) withMethod:@selector(crashKiller_objectAtIndex:) withClass:__NSArrayM];
+    [NSObject crashKillerMethodSwizzlingInstanceMethod:@selector(objectAtIndexedSubscript:) withMethod:@selector(crashKiller_objectAtIndexedSubscript:) withClass:__NSArrayM];
+
 
     /* 可变数组 NSMutableArray*/
     [NSObject crashKillerMethodSwizzlingInstanceMethod:@selector(removeObject:inRange:) withMethod:@selector(crashKiller_removeObject:inRange:) withClass:__NSMutableArray];
@@ -118,19 +120,40 @@
         return [self crashKiller_objectAtIndex:index];
     }
 }
+- (id)crashKiller_objectAtIndexedSubscript:(NSUInteger)idx
+{
+    @synchronized (self) {
+        /*
+         测试代码：
+         NSMutableArray *arr2 = [NSMutableArray array];
+         arr2[0];
+         [arr2 addObject:@"11"];
+         arr2[2];
+         */
+        /*
+         reason: '*** -[__NSArrayM objectAtIndexedSubscript:]: index 0 beyond bounds for empty array'
+         reason: '*** -[__NSArrayM objectAtIndexedSubscript:]: index 2 beyond bounds [0 .. 0]'
+         */
+        if ([self crashWhenObjectAtIndex:idx function:@"[__NSArrayM objectAtIndexedSubscript:]"]) {
+
+            return nil;
+        }
+        return [self crashKiller_objectAtIndexedSubscript:idx];
+    }
+}
 
 - (BOOL)crashWhenObjectAtIndex:(NSUInteger)index function:(NSString *)func
 {
     NSString *reason;
     if (self.count == 0) {
 
-        reason = [NSString stringWithFormat:@"index %zi beyond bounds for empty NSArray",index];
+        reason = [NSString stringWithFormat:@"index %zi beyond bounds for empty array",index];
         [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
         return YES;
     }
     if (index > self.count) {
 
-        reason = [NSString stringWithFormat:@"__boundsFail: index %zi beyond bounds [0 .. %zi]",index,self.count];
+        reason = [NSString stringWithFormat:@"index %zi beyond bounds [0 .. %zi]",index,self.count];
         [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
         return YES;
     }
