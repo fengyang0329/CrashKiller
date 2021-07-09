@@ -17,31 +17,102 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-//    [self testSubstringFromIndex];
-//    [self testSubstringToIndex];
-//    [self testSubstringWithRange];
-//    [self testInitWithStringWhenNil];
-//    [self testInitWithUTF8StringWhenNil];
-//    [self testinitWithCStringWhenNil];
-//    [self testCharacterAtIndex];
-//    [self testStringByAppendingStringWithNil];
-
-//    [self testTaggedPointerStringSubstringFromIndex];
-//    [self testTaggedPointerStringSubstringToIndex];
-//    [self testTaggedPointerStringSubstringWithRange];
-//    [self testTaggedPointerStringStringByAppendingStringWithNil];
-
-//        [self testMutableStringInitWithStringWhenNil];
-//        [self testMutableStringInitWithUTF8StringWhenNil];
-//    [self testMutableStringInitWithCStringWhenNil];
-//    [self testMutableStringStringByAppendingStringAppendString];
-//    [self testMutableStringAppendString];
-//    [self testMutableStringInsertStringAtIndex];
-//    [self testMutableStringdeleteCharactersInRange];
-//    [self testMutableStringSubstringFromIndex];
-//    [self testMutableStringSubstringToIndex];
-    [self testMutableStringSubstringWithRange];
+    self.didSelectRowWithEvent = YES;
+    self.titleArray = @[
+        @{
+            @"title" : @"testSubstringFromIndex",
+            @"detail" : @"NSString *sub = [@\"ff\" substringFromIndex:-100];"
+         },
+        @{
+            @"title" : @"testSubstringToIndex",
+            @"detail": @"NSString *sub = [@\"ff\" substringToIndex:100];"
+         },
+        @{
+            @"title" : @"testSubstringWithRange",
+            @"detail": @"[@\"ff\" substringWithRange:NSMakeRange(100, 100)];"
+         },
+        @{
+            @"title" : @"testInitWithStringWhenNil",
+            @"detail": @"NSString *str = [[NSString alloc] initWithString:nil];"
+         },
+        @{
+            @"title" : @"testInitWithUTF8StringWhenNil",
+            @"detail": @"NSString *str = [[NSString alloc] initWithUTF8String:nil];"
+         },
+        @{
+            @"title" : @"testinitWithCStringWhenNil",
+            @"detail": @"id obj;\nconst char *cString = [obj UTF8String];\nNSString *str = [[NSString alloc] initWithCString:cString encoding:NSUTF8StringEncoding];"
+         },
+        @{
+            @"title" : @"testCharacterAtIndex",
+            @"detail": @"[@\"gg\" characterAtIndex:2];"
+         },
+        @{
+            @"title" : @"testStringByAppendingStringWithNil",
+            @"detail": @"[@\"gg\" stringByAppendingString:nil];"
+         },
+        @{
+            @"title" : @"testTaggedPointerStringSubstringFromIndex",
+            @"detail": @"NSString *str = [NSString stringWithFormat:@\"%@\",@(100)];\n[str substringFromIndex:10];"
+         },
+        @{
+            @"title" : @"testTaggedPointerStringSubstringToIndex",
+            @"detail": @" NSString *str = [NSString stringWithFormat:@\"%@\",@(100)];\n[str substringToIndex:10];"
+         },
+        @{
+            @"title" : @"testTaggedPointerStringSubstringWithRange",
+            @"detail": @"NSString *str = [NSString stringWithFormat:@\"%@\",@(100)];\nNSLog(@\"%@\",[str substringWithRange:NSMakeRange(NSNotFound, NSNotFound)]);"
+         },
+        @{
+            @"title" : @"testTaggedPointerStringStringByAppendingStringWithNil",
+            @"detail": @"NSString *str = [NSString stringWithFormat:@\"%@\",@(100)];\n[str stringByAppendingString:nil];"
+         },
+        @{
+            @"title":@"MutableString:"
+        },
+        @{
+            @"title" : @"testMutableStringInitWithStringWhenNil",
+            @"detail": @"[[NSMutableString alloc] initWithString:nil];"
+         },
+        @{
+            @"title" : @"testMutableStringInitWithUTF8StringWhenNil",
+            @"detail": @"[[NSMutableString alloc] initWithUTF8String:nil];"
+         },
+        @{
+            @"title" : @"testMutableStringInitWithCStringWhenNil",
+            @"detail": @" id obj;\nconst char *cString = [obj UTF8String];\n[[NSMutableString alloc] initWithCString:cString encoding:NSUTF8StringEncoding];"
+         },
+        @{
+            @"title" : @"testMutableStringStringByAppendingStringAppendString",
+            @"detail": @"NSMutableString *str = [NSMutableString stringWithString:@\"g\"];NSLog(@\"%@\", [str stringByAppendingString:nil]);"
+         },
+        @{
+            @"title" : @"testMutableStringAppendString",
+            @"detail": @"NSMutableString *str = [NSMutableString stringWithString:@\"g\"];\n[str appendString:nil];\nNSLog(@\"%@\",str);"
+         },
+        @{
+            @"title" : @"testMutableStringInsertStringAtIndex",
+            @"detail": @"NSMutableString *str = [NSMutableString stringWithString:@\"g\"];\n[str insertString:nil atIndex:0];\n[str insertString:@\"gg\" atIndex:100];"
+         },
+        @{
+            @"title" : @"testMutableStringdeleteCharactersInRange",
+            @"detail": @"NSMutableString *str = [NSMutableString stringWithString:@\"delete\"];\n[str deleteCharactersInRange:NSMakeRange(NSNotFound, NSNotFound)];"
+         },
+        @{
+            @"title" : @"testMutableStringSubstringFromIndex",
+            @"detail": @"NSMutableString *str = [NSMutableString stringWithString:@\"delete\"];\n[str substringFromIndex:-100];"
+         },
+        @{
+            @"title" : @"testMutableStringSubstringToIndex",
+            @"detail": @"NSMutableString *str = [NSMutableString stringWithString:@\"delete\"];\n[str substringToIndex:100];"
+         },
+        @{
+            @"title" : @"testMutableStringSubstringWithRange",
+            @"detail": @"NSMutableString *str = [NSMutableString stringWithString:@\"delete\"];\n[str substringWithRange:NSMakeRange(100, 100)];"
+         }
+    ];
 }
+
 
 #pragma mark 可变string
 
@@ -60,15 +131,15 @@
 {
     NSMutableString *str = [NSMutableString stringWithString:@"delete"];
     [str substringWithRange:NSMakeRange(100, 100)];
-    NSLog(@"%@",[str substringWithRange:NSMakeRange(NSNotFound, NSNotFound)]);
+//    NSLog(@"%@",[str substringWithRange:NSMakeRange(NSNotFound, NSNotFound)]);
 }
 - (void)testMutableStringdeleteCharactersInRange
 {
     NSMutableString *str = [NSMutableString stringWithString:@"delete"];
     [str deleteCharactersInRange:NSMakeRange(0, 1)];
-    NSLog(@"***delete:%@",str);
+//    NSLog(@"***delete:%@",str);
     [str deleteCharactersInRange:NSMakeRange(NSNotFound, NSNotFound)];
-    NSLog(@"***delete2:%@",str);
+//    NSLog(@"***delete2:%@",str);
 }
 
 - (void)testMutableStringInitWithStringWhenNil
@@ -140,7 +211,7 @@
 - (void)testSubstringWithRange
 {
     [@"ff" substringWithRange:NSMakeRange(100, 100)];
-   NSLog(@"%@",[@"ff" substringWithRange:NSMakeRange(NSNotFound, NSNotFound)]);
+//   NSLog(@"%@",[@"ff" substringWithRange:NSMakeRange(NSNotFound, NSNotFound)]);
 }
 
 - (void)testTaggedPointerStringSubstringFromIndex

@@ -31,7 +31,8 @@ extern BOOL crashKillerDebugLog;
 +(instancetype)shareManager;
 - (void)registerExceptionDefend;
 
+- (void)printLogWithException:(NSException *)exception;
+- (void)throwExceptionWithName:(NSString *)name reason:(NSString *)reason;
 
-- (void)printLogWithFunction:(NSString *)func reason:(NSString *)reason callStackSymbols:(NSArray <NSString *> *)callStackSymbols;
 @end
 

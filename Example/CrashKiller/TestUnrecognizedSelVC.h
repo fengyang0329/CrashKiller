@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BaseTestViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestUnrecognizedSelVC : UIViewController
+@interface TestUnrecognizedSelVC : BaseTestViewController
 
 @end
 

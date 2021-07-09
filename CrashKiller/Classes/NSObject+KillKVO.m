@@ -138,7 +138,7 @@
              }
              Context: 0x0'
              */
-            [[CrashKillerManager shareManager] printLogWithFunction:nil reason:[exception description] callStackSymbols:[NSThread callStackSymbols]];
+            [[CrashKillerManager shareManager] printLogWithException:exception];
         }
     }
 }
@@ -164,17 +164,16 @@
                                                 withMethod: @selector(crashKiller_addObserver:forKeyPath:options:context:)
                                                  withClass: [NSObject class]];
 
-//        // 拦截 `removeObserver:forKeyPath:` 方法，替换自定义实现
+        // 拦截 `removeObserver:forKeyPath:` 方法，替换自定义实现
         [NSObject crashKillerMethodSwizzlingInstanceMethod: @selector(removeObserver:forKeyPath:)
                                                 withMethod: @selector(crashKiller_removeObserver:forKeyPath:)
                                                  withClass: [NSObject class]];
-//
         // 拦截 `removeObserver:forKeyPath:context:` 方法，替换自定义实现
         [NSObject crashKillerMethodSwizzlingInstanceMethod: @selector(removeObserver:forKeyPath:context:)
                                                 withMethod: @selector(crashKiller_removeObserver:forKeyPath:context:)
                                                  withClass: [NSObject class]];
-//
-//        // 拦截 `dealloc` 方法，替换自定义实现
+
+        // 拦截 `dealloc` 方法，替换自定义实现
         [NSObject crashKillerMethodSwizzlingInstanceMethod: NSSelectorFromString(@"dealloc")
                                                 withMethod: @selector(crashKiller_kvodealloc)
                                                  withClass: [NSObject class]];
@@ -222,8 +221,7 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
                 reason = [NSString stringWithFormat:@"*** Crash Message: Cannot add an observer:%@ for the key path:'%@' from %@",
                           observer, keyPath, self];
             }
-            [[CrashKillerManager shareManager] printLogWithFunction:nil reason:reason callStackSymbols:[NSThread callStackSymbols]];
-            return;
+            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
         }
     } else {
         [self crashKiller_addObserver:observer forKeyPath:keyPath options:options context:context];
@@ -242,7 +240,7 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
         } else {
             // 移除 KVO 信息操作失败：移除了未注册的观察者
             NSString *reason = [NSString stringWithFormat:@"Cannot remove an observer %@ for the key path '%@' from %@ because it is not registered as an observer.",observer,keyPath,self];
-            [[CrashKillerManager shareManager] printLogWithFunction:nil reason:reason callStackSymbols:[NSThread callStackSymbols]];
+            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
         }
     } else {
         [self crashKiller_removeObserver:observer forKeyPath:keyPath context:context];
@@ -263,7 +261,7 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
              reason: 'Cannot remove an observer <TestKVOCrashVC 0x7f8ac370cd90> for the key path "name" from <CrashObject 0x600000b84fe0> because it is not registered as an observer.'
              */
             NSString *reason = [NSString stringWithFormat:@"Cannot remove an observer %@ for the key path '%@' from %@ because it is not registered as an observer.",observer,keyPath,self];
-            [[CrashKillerManager shareManager] printLogWithFunction:nil reason:reason callStackSymbols:[NSThread callStackSymbols]];
+            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
         }
     } else {
         [self crashKiller_removeObserver:observer forKeyPath:keyPath];
@@ -281,7 +279,7 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
                 // 被观察者在 dealloc 时仍然注册着 KVO
                 if (keyPaths.count > 0) {
                     NSString *reason = [NSString stringWithFormat:@"An instance %@ was deallocated while key value observers were still registered with it. The Keypaths is:'%@' ***", self, [keyPaths componentsJoinedByString:@","]];
-                    [[CrashKillerManager shareManager] printLogWithFunction:nil reason:reason callStackSymbols:[NSThread callStackSymbols]];
+                    [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
                 }
                 // 移除多余的观察者
                 for (NSString *keyPath in keyPaths) {

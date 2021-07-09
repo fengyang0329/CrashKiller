@@ -49,7 +49,7 @@
         [self.timer invalidate];
         self.timer = nil;
         NSString *reason = [NSString stringWithFormat:@"Need invalidate timer from target:%@ method:%@",self.targetClassName,self.targetMethodName];
-        [[CrashKillerManager shareManager] printLogWithFunction:nil reason:reason callStackSymbols:[NSThread callStackSymbols]];
+        [[CrashKillerManager shareManager] throwExceptionWithName:@"NSInvalidArgumentException" reason:reason];
         return;
     }
     if ([self.target respondsToSelector:self.selector]) {

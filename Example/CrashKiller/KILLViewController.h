@@ -7,8 +7,9 @@
 //
 
 @import UIKit;
+#import "BaseTestViewController.h"
 
-@interface KILLViewController : UIViewController
+@interface KILLViewController : BaseTestViewController
 
 - (void)gg;
 @end

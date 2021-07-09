@@ -27,39 +27,26 @@
 }
 - (instancetype)crashKiller_initWithObjects:(NSArray<id> *)objects forKeys:(NSArray<id <NSCopying>> *)keys
 {
-    NSString *func;
-    NSString * reason;
-    if (objects.count != keys.count) {
-
-        /*
-         reason: '*** -[NSDictionary initWithObjects:forKeys:]: count of objects (2) differs from count of keys (1)'
-         */
-        func = @"[NSDictionary initWithObjects:forKeys:]";
-        reason = [NSString stringWithFormat:@"count of objects (%zi) differs from count of keys (%zi)",objects.count,keys.count];
-        [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        return nil;
+    id instance = nil;
+    @try {
+        instance = [self crashKiller_initWithObjects:objects forKeys:keys];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    } @finally {
+        return instance;
     }
-    return [self crashKiller_initWithObjects:objects forKeys:keys];
 }
 
 - (instancetype)crashKiller_initWithObjects:(const id _Nonnull [_Nullable])objects forKeys:(const id _Nonnull [_Nullable])keys count:(NSUInteger)cnt
 {
-    BOOL hasNilObject = NO;
-    for (NSUInteger i = 0; i < cnt; i++) {
 
-        /*
-         reason: '*** -[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]'
-         */
-        if (keys[i]==nil || objects[i] == nil) {
-            hasNilObject = YES;
-            NSString *func = @"[__NSPlaceholderDictionary initWithObjects:forKeys:count:]";
-            NSString *reason = [NSString stringWithFormat:@"attempt to insert nil object from objects[%zi]",i];
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-            break;
-        }
-    }
-    BOOL resultIsNil = YES;
-    if (hasNilObject) {
+    id instance = nil;
+    @try {
+        instance = [self crashKiller_initWithObjects:objects forKeys:keys count:cnt];
+    } @catch (NSException *exception) {
+
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+        //以下是对错误数据的处理，把为nil的数据去掉,然后初始化数组
         id  newObjects[cnt];
         id newKeys[cnt];
         NSUInteger index = 0;
@@ -69,63 +56,33 @@
                 newKeys[index] = keys[i];
                 newObjects[index] = objects[i];
                 index++;
-                resultIsNil = NO;
             }
         }
-        if (resultIsNil) {
+        instance = [self crashKiller_initWithObjects:newObjects forKeys:newKeys count:index];
 
-            return  nil;
-        }
-        return [self crashKiller_initWithObjects:newObjects forKeys:newKeys count:index];;
+    } @finally {
+        return instance;
     }
-    return [self crashKiller_initWithObjects:objects forKeys:keys count:cnt];
 }
 
 #pragma mark 可变字典
 - (void)crashKiller_setObject:(id)anObject forKey:(id <NSCopying>)aKey
 {
-
-    @synchronized (self) {
-
-        NSString *func = @"[__NSDictionaryM setObject:forKey:]";
-        NSString *reason;
-        if (!anObject) {
-
-            /*
-             reason: '*** -[__NSDictionaryM setObject:forKey:]: object cannot be nil (key: ff)'
-             */
-            reason = [NSString stringWithFormat:@"object cannot be nil (key: %@)",aKey];
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-            return;
-        }
-        if (!aKey) {
-
-            /*
-             reason: '*** -[__NSDictionaryM setObject:forKey:]: key cannot be nil'
-             */
-            reason = @"key cannot be nil";
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-            return;
-        }
+    @try {
         [self crashKiller_setObject:anObject forKey:aKey];
+    } @catch (NSException *exception) {
+
+        [[CrashKillerManager shareManager] printLogWithException:exception];
     }
 }
 
 - (void)crashKiller_removeObjectForKey:(id)aKey
 {
-    @synchronized (self) {
-
-        NSString *func = @"[__NSDictionaryM removeObjectForKey:]";
-        if (!aKey) {
-
-            /*
-             reason: '*** -[__NSDictionaryM removeObjectForKey:]: key cannot be nil'
-             */
-            NSString *reason = @"key cannot be nil";
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-            return;
-        }
+    @try {
         [self crashKiller_removeObjectForKey:aKey];
+    } @catch (NSException *exception) {
+
+        [[CrashKillerManager shareManager] printLogWithException:exception];
     }
 }
 

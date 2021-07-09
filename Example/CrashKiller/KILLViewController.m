@@ -26,10 +26,7 @@
 
 @end
 
-@interface KILLViewController ()<UITableViewDelegate, UITableViewDataSource>
-
-@property (nonatomic, strong) UITableView *tableView;
-
+@interface KILLViewController ()
 
 @end
 
@@ -43,10 +40,14 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     self.title = @"防崩溃测试";
-    _titleArray = @[
+    self.titleArray = @[
         @{
             @"title" : @"Unrecognized Selector Crash",
             @"class" : @"TestUnrecognizedSelVC"
+        },
+        @{
+            @"title" : @"Containers Crash",
+            @"class" : @"TestContainerCrashVC"
         },
         @{
             @"title" : @"KVO Crash",
@@ -63,56 +64,9 @@
         @{
             @"title" : @"NSNull Crash",
             @"class" : @"TestNullVC"
-        },
-        @{
-            @"title" : @"Containers Crash",
-            @"class" : @"TestContainerCrashVC"
         }
     ];
-    [self.view addSubview:self.tableView];
 }
-
-- (UITableView *)tableView {
-    if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height) style:UITableViewStyleGrouped];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-    }
-    return _tableView;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _titleArray.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellID = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellID];
-    }
-    cell.textLabel.text = [_titleArray[indexPath.row] objectForKey:@"title"];
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    NSDictionary *item =  _titleArray[indexPath.row];
-    NSString *title = item[@"title"];
-    Class cls = NSClassFromString([item objectForKey:@"class"]);
-    UIViewController *vc = (UIViewController *)[[cls alloc] init];
-    vc.title = title;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
 
 //
 ////// 重写 resolveInstanceMethod: 添加对象方法实现

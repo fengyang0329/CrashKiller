@@ -34,167 +34,114 @@
 
 - (instancetype)crashKiller_initWithString:(NSString *)aString
 {
-    /*
-     reason: '*** -[NSPlaceholderMutableString initWithString:]: nil argument'
-     */
-    if (aString){
-        return [self crashKiller_initWithString:aString];
+    id instance = nil;
+    @try {
+        instance = [self crashKiller_initWithString:aString];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    } @finally {
+        return instance;
     }
-    NSString *func = @"[NSPlaceholderMutableString initWithString:]";
-    NSString *reason = @"nil argument";
-    [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-    return nil;
 }
 - (nullable instancetype)crashKiller_initWithUTF8String:(const char *)nullTerminatedCString;
 {
-    /*
-     reason: '*** -[NSPlaceholderMutableString initWithUTF8String:]: NULL cString'
-     */
-    if (NULL != nullTerminatedCString) {
-        return [self crashKiller_initWithUTF8String:nullTerminatedCString];
+    id instance = nil;
+    @try {
+        instance = [self crashKiller_initWithUTF8String:nullTerminatedCString];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    } @finally {
+        return instance;
     }
-    NSString *func = @"[NSPlaceholderMutableString initWithUTF8String:]";
-    NSString *reason = @"NULL cString";
-    [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-    return nil;
 }
 
 - (nullable instancetype)crashKiller_initWithCString:(const char *)nullTerminatedCString encoding:(NSStringEncoding)encoding
 {
-    /*
-     reason: '*** -[NSPlaceholderMutableString initWithCString:encoding:]: nil argument'
-     */
-    if (NULL != nullTerminatedCString){
-        return [self crashKiller_initWithCString:nullTerminatedCString encoding:encoding];
+    id instance = nil;
+    @try {
+        instance = [self crashKiller_initWithCString:nullTerminatedCString encoding:encoding];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    } @finally {
+        return instance;
     }
-    NSString *func = @"[NSPlaceholderMutableString initWithCString:encoding:]";
-    NSString *reason = @"nil argument";
-    [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-    return nil;
 }
 
 - (NSString *)crashKiller_stringByAppendingString:(NSString *)aString
 {
-    /*
-     reason: '*** -[__NSCFString stringByAppendingString:]: nil argument'
-     */
-    @synchronized (self) {
-        if (aString){
-            return [self crashKiller_stringByAppendingString:aString];
-        }
-        NSString *func = @"[__NSCFString stringByAppendingString:]";
-        NSString *reason = @"nil argument";
-        [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        return self;
+    id instance = nil;
+    @try {
+        instance = [self crashKiller_stringByAppendingString:aString];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    } @finally {
+        return instance;
     }
 }
 
 - (void)crashKiller_appendString:(NSString *)aString
 {
-    /*
-     reason: '-[__NSCFString appendString:]: nil argument'
-     */
-    @synchronized (self) {
-        if (aString){
-            [self crashKiller_appendString:aString];
-        }else{
 
-            NSString *func = @"[__NSCFString appendString:]";
-            NSString *reason = @"nil argument";
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        }
+    @try {
+        [self crashKiller_appendString:aString];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
     }
 }
 
 - (void)crashKiller_insertString:(NSString *)aString atIndex:(NSUInteger)loc
 {
-    /*
-     reason: '-[__NSCFString insertString:atIndex:]: nil argument'
-     */
-    @synchronized (self) {
-        if (aString && loc <= self.length) {
-            [self crashKiller_insertString:aString atIndex:loc];
-        }else if(!aString){
 
-            NSString *func = @"[__NSCFString insertString:atIndex:]";
-            NSString *reason = @"nil argument";
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        }else if (loc > self.length){
-
-            /*
-             reason: '-[__NSCFString insertString:atIndex:]: Range or index out of bounds'
-             */
-            NSString *func = @"[__NSCFString insertString:atIndex:]";
-            NSString *reason = @"Range or index out of bounds";
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        }
+    @try {
+        [self crashKiller_insertString:aString atIndex:loc];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
     }
 }
 
 - (void)crashKiller_deleteCharactersInRange:(NSRange)range
 {
-    /*
-     reason: '-[__NSCFString deleteCharactersInRange:]: Range or index out of bounds'
-     */
-    @synchronized (self) {
-        if (CrashKillerSafeMaxRange(range) <= self.length){
-            [self crashKiller_deleteCharactersInRange:range];
-        }else{
-
-            NSString *func = @"[__NSCFString deleteCharactersInRange:]";
-            NSString *reason = @"Range or index out of bounds";
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        }
+    @try {
+        [self crashKiller_deleteCharactersInRange:range];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
     }
 }
 
 
 - (NSString *)crashKiller_substringFromIndex:(NSUInteger)from
 {
-    /*
-     reason: '*** -[__NSCFString substringFromIndex:]: Index 18446744073709551516 out of bounds; string length 6'
-     */
-    @synchronized (self) {
-        if (from <= self.length) {
-            return [self crashKiller_substringFromIndex:from];
-        }
-        NSString *func = @"[__NSCFString substringFromIndex:]";
-        NSString *reason =[NSString stringWithFormat:@"Index %zi out of bounds; string length %zi",from,self.length];
-        [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        return nil;
+    NSString *instance = nil;
+    @try {
+        instance = [self crashKiller_substringFromIndex:from];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    } @finally {
+        return instance;
     }
 }
+
 - (NSString *)crashKiller_substringToIndex:(NSUInteger)to
 {
-    /*
-     reason: '*** -[__NSCFString substringToIndex:]: Index 100 out of bounds; string length 6'
-     */
-    @synchronized (self) {
-        if (to <= self.length) {
-            return [self crashKiller_substringToIndex:to];
-        }
-        NSString *func = @"[__NSCFString substringToIndex:]";
-        NSString *reason =[NSString stringWithFormat:@"Index %zi out of bounds; string length %zi",to,self.length];
-        [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        return self;
+    NSString *instance = nil;
+    @try {
+        instance = [self crashKiller_substringToIndex:to];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    } @finally {
+        return instance;
     }
 }
 
 - (NSString *)crashKiller_substringWithRange:(NSRange)range
 {
-    /*
-     reason: '-[__NSCFString substringWithRange:]: Range {100, 100} out of bounds; string length 6'
-     */
-    @synchronized (self) {
-        if (CrashKillerSafeMaxRange(range) <= self.length) {
-            return [self crashKiller_substringWithRange:range];
-        }else if (range.location < self.length){
-            return [self crashKiller_substringWithRange:NSMakeRange(range.location, self.length-range.location)];
-        }
-        NSString *func = @"[__NSCFString substringWithRange:]";
-        NSString *reason =[NSString stringWithFormat:@"Range {%zi, %zi} out of bounds; string length %zi",range.location,range.length,self.length];
-        [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
-        return nil;
+    NSString *instance = nil;
+    @try {
+        instance = [self crashKiller_substringWithRange:range];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    } @finally {
+        return instance;
     }
 }
 

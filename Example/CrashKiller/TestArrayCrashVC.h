@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
-@interface TestArrayCrashVC : UIViewController
+@interface TestArrayCrashVC : BaseTestViewController
 
 @end
 
-NS_ASSUME_NONNULL_END

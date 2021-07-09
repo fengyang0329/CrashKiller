@@ -15,6 +15,8 @@
 #import "NSDictionary+KillCrash.h"
 #import "NSString+KillCrash.h"
 #import "NSMutableString+KillCrash.h"
+#import "NSSet+KillCrash.h"
+#import "NSMutableSet+KillCrash.h"
 
 #if DEBUG
 BOOL crashKillerDebugLog = YES;
@@ -83,30 +85,38 @@ BOOL crashKillerDebugLog = NO;
         [NSString registerKillString];
         [NSMutableString registerKillMutableString];
     }
+    if (defendType & CrashKillerDefendSetContainer) {
+
+        CrashKillerLOG(@"添加NSSet Container类型防护");
+        [NSSet registerKillSet];
+        [NSMutableSet registerKillNSMutableSet];
+    }
 }
 
 
-
-- (void)printLogWithFunction:(NSString *)func reason:(NSString *)reason callStackSymbols:(NSArray <NSString *> *)callStackSymbols
+- (void)printLogWithException:(NSException *)exception
 {
-    NSString *log = [NSString stringWithFormat:@"-%@: %@",func,reason];
-    if (func.length == 0) {
-
-        log = [NSString stringWithFormat:@"%@",reason];
-    }
-    NSString *detailLog = [log stringByAppendingFormat:@"\n   *** First throw call stack:%@",callStackSymbols];
-    CrashKillerLOG(@"%@",detailLog);
+    CrashKillerLOG(@"%@",exception);
     //如果外部注册了logDelegate，则将log给出
-    if (self.logDelegate && [self.logDelegate respondsToSelector:@selector(onLog:callStackSymbols:)])
+    if (self.logDelegate && [self.logDelegate respondsToSelector:@selector(onLog:)])
     {
-        [self.logDelegate onLog:log callStackSymbols:callStackSymbols];
+        [self.logDelegate onLog:exception];
     }
     if (self.terminateWhenException) {
-        
-//        NSException *excp = [NSException exceptionWithName:@"Error" reasonlog userInfo:nil];
-//        [excp raise];
-        NSAssert(NO, log);
+
+        assert(0);
     }
 }
+- (void)throwExceptionWithName:(NSString *)name reason:(NSString *)reason
+{
+    @try {
+        NSException *exce = [[NSException alloc] initWithName:name reason:reason userInfo:nil];
+        [exce raise];
+
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    }
+}
+
 
 @end

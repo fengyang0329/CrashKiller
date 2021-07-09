@@ -40,6 +40,12 @@
 		D09237AD261711FA0094B18F /* NSString+KillCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D09237AB261711FA0094B18F /* NSString+KillCrash.m */; };
 		D09237B32617120E0094B18F /* NSMutableString+KillCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = D09237B12617120E0094B18F /* NSMutableString+KillCrash.h */; };
 		D09237B42617120E0094B18F /* NSMutableString+KillCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D09237B22617120E0094B18F /* NSMutableString+KillCrash.m */; };
+		D0AF78E826971D4C007713FB /* NSSet+KillCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = D0AF78E626971D4C007713FB /* NSSet+KillCrash.h */; };
+		D0AF78E926971D4C007713FB /* NSSet+KillCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AF78E726971D4C007713FB /* NSSet+KillCrash.m */; };
+		D0AF78EC26971D5E007713FB /* NSMutableSet+KillCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = D0AF78EA26971D5E007713FB /* NSMutableSet+KillCrash.h */; };
+		D0AF78ED26971D5E007713FB /* NSMutableSet+KillCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AF78EB26971D5E007713FB /* NSMutableSet+KillCrash.m */; };
+		D0AF78F7269880DA007713FB /* NSURL+KillCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = D0AF78F5269880DA007713FB /* NSURL+KillCrash.h */; };
+		D0AF78F8269880DA007713FB /* NSURL+KillCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AF78F6269880DA007713FB /* NSURL+KillCrash.m */; };
 		D2EA6DC1B77A5989BD60881E2602AB13 /* Pods-CrashKiller_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D84E68BFB4198DCB48CE000818FDA28A /* Pods-CrashKiller_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7E5A5EFDA90BBBD404CF6DECE882E77 /* CrashKiller.h in Headers */ = {isa = PBXBuildFile; fileRef = A768267D431F3BB83D8CD7C4CA52B72F /* CrashKiller.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EEF76E4D84A0C4DB8477A2DC8DC4161B /* NSObject+KillKVO.h in Headers */ = {isa = PBXBuildFile; fileRef = 620E4AF46CD72EC7959D3945ECEB0225 /* NSObject+KillKVO.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -111,6 +117,12 @@
 		D09237AB261711FA0094B18F /* NSString+KillCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+KillCrash.m"; sourceTree = "<group>"; };
 		D09237B12617120E0094B18F /* NSMutableString+KillCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+KillCrash.h"; sourceTree = "<group>"; };
 		D09237B22617120E0094B18F /* NSMutableString+KillCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+KillCrash.m"; sourceTree = "<group>"; };
+		D0AF78E626971D4C007713FB /* NSSet+KillCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSSet+KillCrash.h"; sourceTree = "<group>"; };
+		D0AF78E726971D4C007713FB /* NSSet+KillCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSSet+KillCrash.m"; sourceTree = "<group>"; };
+		D0AF78EA26971D5E007713FB /* NSMutableSet+KillCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+KillCrash.h"; sourceTree = "<group>"; };
+		D0AF78EB26971D5E007713FB /* NSMutableSet+KillCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+KillCrash.m"; sourceTree = "<group>"; };
+		D0AF78F5269880DA007713FB /* NSURL+KillCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+KillCrash.h"; sourceTree = "<group>"; };
+		D0AF78F6269880DA007713FB /* NSURL+KillCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+KillCrash.m"; sourceTree = "<group>"; };
 		D1C9EB7EA8ACD693CD6C5D4376692137 /* Pods-CrashKiller_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CrashKiller_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		D2E387EEB5F879A4077D5548675C6465 /* NSNull+KillCrash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSNull+KillCrash.h"; sourceTree = "<group>"; };
@@ -293,6 +305,12 @@
 				D09237AB261711FA0094B18F /* NSString+KillCrash.m */,
 				D09237B12617120E0094B18F /* NSMutableString+KillCrash.h */,
 				D09237B22617120E0094B18F /* NSMutableString+KillCrash.m */,
+				D0AF78E626971D4C007713FB /* NSSet+KillCrash.h */,
+				D0AF78E726971D4C007713FB /* NSSet+KillCrash.m */,
+				D0AF78EA26971D5E007713FB /* NSMutableSet+KillCrash.h */,
+				D0AF78EB26971D5E007713FB /* NSMutableSet+KillCrash.m */,
+				D0AF78F5269880DA007713FB /* NSURL+KillCrash.h */,
+				D0AF78F6269880DA007713FB /* NSURL+KillCrash.m */,
 			);
 			name = Container;
 			path = CrashKiller/Classes/Container;
@@ -332,7 +350,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AF78E826971D4C007713FB /* NSSet+KillCrash.h in Headers */,
 				9B9F62C11B63C38981C37137CEA8D80F /* CrashKiller-umbrella.h in Headers */,
+				D0AF78F7269880DA007713FB /* NSURL+KillCrash.h in Headers */,
 				D06483D42626CE08007F0DCC /* NSMutableArray+KillCrash.h in Headers */,
 				D7E5A5EFDA90BBBD404CF6DECE882E77 /* CrashKiller.h in Headers */,
 				B27EF19CDF25D967C7D206CCE7515D33 /* CrashKillerManager.h in Headers */,
@@ -344,6 +364,7 @@
 				EEF76E4D84A0C4DB8477A2DC8DC4161B /* NSObject+KillKVO.h in Headers */,
 				AE112962642CB5FECA4FEBED8D07A7B1 /* NSObject+KillSelector.h in Headers */,
 				300CAF6BEBF523484083732879CBA496 /* NSTimer+KillCrash.h in Headers */,
+				D0AF78EC26971D5E007713FB /* NSMutableSet+KillCrash.h in Headers */,
 				D0923797261710F30094B18F /* NSDictionary+KillCrash.h in Headers */,
 				D092379E261711220094B18F /* NSArray+KillCrash.h in Headers */,
 			);
@@ -466,7 +487,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AF78F8269880DA007713FB /* NSURL+KillCrash.m in Sources */,
+				D0AF78E926971D4C007713FB /* NSSet+KillCrash.m in Sources */,
 				AC2F7AD00E5B199EC4D42B58604687B1 /* CrashKiller-dummy.m in Sources */,
+				D0AF78ED26971D5E007713FB /* NSMutableSet+KillCrash.m in Sources */,
 				D092379F261711220094B18F /* NSArray+KillCrash.m in Sources */,
 				C1911730C7DAAFD4B7C8511DF7481C33 /* CrashKiller.m in Sources */,
 				D09237AD261711FA0094B18F /* NSString+KillCrash.m in Sources */,

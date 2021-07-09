@@ -20,12 +20,13 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
     CrashKillerDefendDictionaryContainer = 1 << 4,
     CrashKillerDefendArrayContainer = 1 << 5,
     CrashKillerDefendStringContainer = 1 << 6,
-    CrashKillerDefendAll = CrashKillerDefendUnrecognizedSelector | CrashKillerDefendKVC | CrashKillerDefendKVO | CrashKillerDefendNSTimer | CrashKillerDefendDictionaryContainer | CrashKillerDefendArrayContainer | CrashKillerDefendStringContainer
+    CrashKillerDefendSetContainer = 1 << 7,
+    CrashKillerDefendAll = CrashKillerDefendUnrecognizedSelector | CrashKillerDefendKVC | CrashKillerDefendKVO | CrashKillerDefendNSTimer | CrashKillerDefendDictionaryContainer | CrashKillerDefendArrayContainer | CrashKillerDefendStringContainer | CrashKillerDefendSetContainer
 };
 
 @protocol CrashKillerLogDelegate <NSObject>
 @optional
-- (void)onLog:(NSString*)log callStackSymbols:(NSArray <NSString *> *)callStackSymbols;
+- (void)onLog:(NSException *)exception;
 
 @end
 

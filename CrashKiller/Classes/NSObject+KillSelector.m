@@ -56,9 +56,8 @@
             NSString *errClassName = NSStringFromClass([self class]);
             NSString *errSel = NSStringFromSelector(aSelector);
 
-            NSString *func = [NSString stringWithFormat:@"[%@ %@]",errClassName,errSel];
-            NSString *reason = [NSString stringWithFormat:@"unrecognized selector sent to class %p",self];
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
+            NSString *reason = [NSString stringWithFormat:@"-[%@ %@]: unrecognized selector sent to class %p",errClassName,errSel,self];
+            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSInvalidArgumentException" reason:reason];
 
             NSString *className = @"CrachClass";
             Class cls = NSClassFromString(className);
@@ -108,10 +107,9 @@
             // 创建一个新类
             NSString *errClassName = NSStringFromClass([self class]);
             NSString *errSel = NSStringFromSelector(aSelector);
-            
-            NSString *func = [NSString stringWithFormat:@"[%@ %@]",errClassName,errSel];
-            NSString *reason = [NSString stringWithFormat:@"unrecognized selector sent to instance %p",self];
-            [[CrashKillerManager shareManager] printLogWithFunction:func reason:reason callStackSymbols:[NSThread callStackSymbols]];
+
+            NSString *reason = [NSString stringWithFormat:@"-[%@ %@]: unrecognized selector sent to instance %p",errClassName,errSel,self];
+            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSInvalidArgumentException" reason:reason];
 
 
             NSString *className = @"CrachClass";

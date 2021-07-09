@@ -10,6 +10,8 @@
 #import <CrashKiller.h>
 #import "KILLViewController.h"
 
+KILLViewController *vc;
+
 @implementation KILLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -23,9 +25,9 @@
 //    [CrashKiller start];
 
 //    CrashKiller.terminateWhenException = YES;
-//    CrashKiller.debugLog = NO;
+    CrashKiller.debugLog = NO;
     
-    KILLViewController *vc = [[KILLViewController alloc] init];
+    vc = [[KILLViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navigation;
@@ -34,9 +36,10 @@
     return YES;
 }
 
-- (void)onLog:(NSString*)log callStackSymbols:(NSArray <NSString *> *)callStackSymbols;
+
+- (void)onLog:(NSException *)exception
 {
-    NSLog(@"***********onLog:%@\n   *** First throw call stack:%@",log,callStackSymbols);
+    [vc alertWithTitle:exception.name message:[NSString stringWithFormat:@"\n%@\n*** First throw call stack:%@",exception.reason,exception.callStackSymbols] completionHandler:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

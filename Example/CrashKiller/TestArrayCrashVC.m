@@ -16,8 +16,7 @@
 
 - (void)testInitWithNilObject
 {
-    id obj;
-    [NSArray arrayWithObject:obj];
+    [NSArray arrayWithObject:nil];
 }
 - (void)testArrayByAddingNilObject
 {
@@ -35,6 +34,7 @@
     NSArray *_arr = @[@"f"];
     [_arr objectAtIndex:3];
 }
+
 - (void)testSubarrayWithRangeWhenArrayCount0
 {
     [@[] subarrayWithRange:NSMakeRange(2, 2)];
@@ -45,8 +45,7 @@
 }
 - (void)testObjectsAtIndexesWithNil
 {
-    id obj;
-    [@[] objectsAtIndexes:obj];
+    [@[] objectsAtIndexes:nil];
 }
 - (void)testObjectsAtIndexesWithEmptyArray
 {
@@ -55,16 +54,15 @@
 - (void)testObjectsAtIndexesWithBeyondBounds
 {
     [@[@"3"] objectsAtIndexes:[NSIndexSet indexSetWithIndex:2]];
-    [@[@"55"] objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(3, 2)]];
+//    [@[@"55"] objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(3, 2)]];
 }
 
 
 #pragma mark 可变数组
 - (void)testMutableArrayAddNil
 {
-    id obj;
     NSMutableArray *array = [@[@"value", @"value1"]  mutableCopy];
-    [array addObject:obj];
+    [array addObject:nil];
 }
 - (void)testRemoveObjectsInRangeWithEmptyArray
 {
@@ -76,6 +74,11 @@
     NSMutableArray *array = [@[@"value", @"value1"]  mutableCopy];
     [array removeObjectAtIndex:5];
 }
+- (void)testRemoveObjectsInRange
+{
+    NSMutableArray *array = [NSMutableArray array];
+    [array removeObjectsInRange:NSMakeRange(3, 2)];
+}
 
 - (void)testMutableArrayInsertBeyondBounds
 {
@@ -84,11 +87,10 @@
 }
 - (void)testReplaceObjectAtIndexWithNil
 {
-    id obj;
     NSMutableArray *array = [@[@"value", @"value1"]  mutableCopy];
-    [obj replaceObjectAtIndex:4 withObject:@"ff"];
-    [array replaceObjectAtIndex:4 withObject:obj];
+    [array replaceObjectAtIndex:4 withObject:nil];
 }
+
 - (void)testReplaceObjectAtIndexWithBeyondBounds
 {
     NSMutableArray *array = [@[@"value", @"value1"]  mutableCopy];
@@ -110,31 +112,107 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self testInitWithNilObject];
-    [self testArrayByAddingNilObject];
-    [self testObjectAtIndexWhenArrayCount0];
-    [self testObjectAtIndexWhenArrayCount1];
-    [self testSubarrayWithRangeWhenArrayCount0];
-    [self testSubarrayWithRangeBeyondBounds];
-    [self testObjectsAtIndexesWithNil];
-    [self testObjectsAtIndexesWithEmptyArray];
-    [self testObjectsAtIndexesWithBeyondBounds];
+    self.didSelectRowWithEvent = YES;
+    self.titleArray = @[
+        @{
+            @"title" : @"testInitWithNilObject",
+            @"detail": @"[NSArray arrayWithObject:nil];"
+        },
+        @{
+            @"title" : @"testArrayByAddingNilObject",
+            @"detail": @"NSArray *arr = [NSArray arrayWithObject:@\"ff\"];\n[arr arrayByAddingObject:nil];"
+        },
+        @{
+            @"title" : @"testObjectAtIndexWhenArrayCount0",
+            @"detail":@"NSArray *_arr = @[];\n[_arr objectAtIndex:3];"
+        },
+        @{
+            @"title" : @"testObjectAtIndexWhenArrayCount1",
+            @"detail":@" NSArray *_arr = @[@\"f\"];\n[_arr objectAtIndex:3];"
+        },
+        @{
+            @"title" : @"testSubarrayWithRangeWhenArrayCount0",
+            @"detail" :@"[@[] subarrayWithRange:NSMakeRange(2, 2)];"
+        },
+        @{
+            @"title" : @"testSubarrayWithRangeBeyondBounds",
+            @"detail":@"[@[@\"3\"] subarrayWithRange:NSMakeRange(0, 2) ];"
+        },
+        @{
+            @"title" : @"testObjectsAtIndexesWithNil",
+            @"detail": @"[@[] objectsAtIndexes:nil];"
+        },
+        @{
+            @"title" : @"testObjectsAtIndexesWithEmptyArray",
+            @"detail": @"[@[] objectsAtIndexes:[NSIndexSet indexSetWithIndex:2]];"
+        },
+        @{
+            @"title" : @"testObjectsAtIndexesWithBeyondBounds",
+            @"detail": @"[@[@\"3\"] objectsAtIndexes:[NSIndexSet indexSetWithIndex:2]];"
+        },
+        @{
+            @"title" : @"可变数组："
+        },
+        @{
+            @"title" : @"testMutableArrayAddNil",
+            @"detail": @"NSMutableArray *array=[@[@\"value\", @\"value1\"] mutableCopy];\n[array addObject:nil];"
+        },
+        @{
+            @"title" : @"testMutableArrayInsertBeyondBounds",
+            @"detail": @"NSMutableArray *array=[@[@\"value\", @\"value1\"] mutableCopy];\n[array insertObject:@\"2\" atIndex:6];"
+        },
+        @{
+            @"title" : @"testReplaceObjectAtIndexWithNil",
+            @"detail": @"NSMutableArray *array=[@[@\"value\", @\"value1\"] mutableCopy];\n[array replaceObjectAtIndex:4 withObject:nil];"
+        },
+        @{
+            @"title" : @"testReplaceObjectAtIndexWithBeyondBounds",
+            @"detail": @"NSMutableArray *array=[@[@\"value\", @\"value1\"] mutableCopy];\n[array replaceObjectAtIndex:4 withObject:@\"2\"];"
+        },
+        @{
+            @"title" : @"testMutableArrayObjectAtIndexWithCount0",
+            @"detail": @"NSMutableArray *array=[@[]  mutableCopy];\n[array objectAtIndex:100];"
+        },
+        @{
+            @"title" : @"testMutableArrayObjectAtIndexWithBeyondBounds",
+            @"detail" : @"NSMutableArray *array=[@[@\"value\", @\"value1\"] mutableCopy];\n[array objectAtIndex:100];"
+        },
+        @{
+            @"title" : @"testMutableArrayRemoveObjectsAtIndexesWithEmptyArray",
+            @"detail" : @"NSMutableArray *mut1=[NSMutableArray new];\n[mut1 removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(10, 1)]];"
+        },
+        @{
+            @"title" : @"testMutableArrayRemoveObjectsAtIndexesWithNil",
+            @"detail" : @"NSMutableArray *mut1=[@[@\"value\", @\"value1\"] mutableCopy];\n[mut1 removeObjectsAtIndexes:nil];"
+        },
+        @{
+            @"title" : @"testMutableArrayRemoveObjectsAtIndexesWithBeyondBounds",
+            @"detail" : @"NSMutableArray *mut1=[@[@\"value\", @\"value1\"] mutableCopy];\n[mut1 removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 100)]];"
+        },
+        @{
+            @"title":@"testRemoveObjectsInRange",
+            @"detail":@"NSMutableArray *array=[NSMutableArray array];\n[array removeObjectsInRange:NSMakeRange(3, 2)];"
+        },
+        @{
+            @"title" : @"testMutableArrayRemoveObjectInRangeWithEmptyArray",
+            @"detail":@"NSMutableArray *mut1 = [@[@\"value\", @\"value1\"] mutableCopy];\n[mut1 removeObject:nil inRange:NSMakeRange(0, 6)];"
+        },
+        @{
+            @"title" : @"testMutableArrayRemoveObjectInRangeWithBeyondBounds",
+            @"detail":@"NSMutableArray *mut1=[NSMutableArray new];\n[mut1 removeObject:@\"fd\" inRange:NSMakeRange(5, 8)];"
+        },
+        @{
+            @"title":@"testMutableArrayObjectAtIndexedSubscript",
+            @"detail":@"NSMutableArray *mut1 = [NSMutableArray new];\nmut1[0];"
+        }
+    ];
+}
 
-    [self testMutableArrayAddNil];
-    [self testMutableArrayInsertBeyondBounds];
 
-    [self testReplaceObjectAtIndexWithNil];
-    [self testReplaceObjectAtIndexWithBeyondBounds];
-
-    [self testMutableArrayObjectAtIndexWithCount0];
-    [self testMutableArrayObjectAtIndexWithBeyondBounds];
-
-    [self testMutableArrayRemoveObjectsAtIndexesWithEmptyArray];
-    [self testMutableArrayRemoveObjectsAtIndexesWithNil];
-    [self testMutableArrayRemoveObjectsAtIndexesWithBeyondBounds];
-
-    [self testMutableArrayRemoveObjectInRangeWithEmptyArray];
-    [self testMutableArrayRemoveObjectInRangeWithBeyondBounds];
+- (void)testMutableArrayObjectAtIndexedSubscript
+{
+    NSMutableArray *mut1 = [NSMutableArray new];
+    mut1[0];
 }
 
 - (void)testMutableArrayRemoveObjectsAtIndexesWithEmptyArray
@@ -152,7 +230,7 @@
 {
     NSMutableArray *mut1 = [@[@"value", @"value1"]  mutableCopy];
     [mut1 removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 100)]];
-    [mut1 removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(100, 3)]];
+//    [mut1 removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(100, 3)]];
 }
 
 - (void)testMutableArrayRemoveObjectInRangeWithEmptyArray

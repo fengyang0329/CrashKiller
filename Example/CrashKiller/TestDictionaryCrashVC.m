@@ -17,13 +17,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self testInitObjectsWithNil];
-    [self testInitObjectsCountNotEqualKeysCount];
-    [self testSetObjectWithNil];
-    [self testSetObjectWithNilKey];
-    [self testRemoveObjectWithNilKey];
+
+    self.didSelectRowWithEvent = YES;
+    self.titleArray = @[
+        @{
+            @"title" : @"testinitWithObjectsWithArgNotArray",
+            @"detail" : @"NSDictionary *dic2 = [[NSDictionary alloc] initWithObjects:@\"ff\" forKeys:nil];"
+         },
+        @{
+            @"title" : @"testinitWithObjectsKeysNil",
+            @"detail": @"NSDictionary *dic2 = [[NSDictionary alloc] initWithObjects:@[@\"ff\"] forKeys:nil];"
+         },
+        @{
+            @"title" : @"testInitObjectsWithNil",
+            @"detail" : @"NSString *nilStr = nil;\nNSDictionary *dic = @{nilStr:@\"keyNil\",@\"valueNil\":nilStr,@\"key1\":@\"value not nil\"};"
+         },
+        @{
+            @"title" : @"testInitObjectsCountNotEqualKeysCount",
+            @"detail": @"id dd = nil;\nNSDictionary *dic = [NSDictionary dictionaryWithObjects:@[@\"FF\",@\"fff\"] forKeys:@[dd,@\"F\"]];"
+         },
+        @{
+            @"title" : @"testSetObjectWithNil",
+            @"detail": @"NSMutableDictionary *mutDic = [NSMutableDictionary dictionaryWithDictionary:nil];\n[mutDic setObject:nil forKey:@\"ff\"];"
+         },
+        @{
+            @"title" : @"testSetObjectWithNilKey",
+            @"detail": @"NSMutableDictionary *mutDic=[NSMutableDictionary dictionaryWithDictionary:nil];\n[mutDic setObject:@\"fff\" forKey:nil];"
+         },
+        @{
+            @"title" : @"testRemoveObjectWithNilKey",
+            @"detail": @"NSMutableDictionary *mutDic=[NSMutableDictionary dictionaryWithObject:@\"gg\" forKey:@\"ff\"];\n[mutDic removeObjectForKey:nil];"
+         }
+    ];
 }
 
+
+- (void)testinitWithObjectsWithArgNotArray
+{
+    NSDictionary *dic2 = [[NSDictionary alloc] initWithObjects:@"ff" forKeys:nil];
+}
+- (void)testinitWithObjectsKeysNil
+{
+    NSDictionary *dic2 = [[NSDictionary alloc] initWithObjects:@[@"ff"] forKeys:nil];
+}
 - (void)testInitObjectsWithNil
 {
     NSString *nilStr = nil;

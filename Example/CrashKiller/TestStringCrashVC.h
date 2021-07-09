@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestStringCrashVC : UIViewController
+@interface TestStringCrashVC : BaseTestViewController
 
 @end
 
