@@ -47,6 +47,10 @@
         @{
             @"title" : @"NSURL Crash",
             @"class" : @"TestUrlCrashVC"
+        },
+        @{
+            @"title" : @"NSJSONSerialization Crash",
+            @"class" : @"TestJSONSerializationCrashVC"
         }
     ];
 }

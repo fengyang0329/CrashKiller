@@ -17,11 +17,12 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
     CrashKillerDefendKVC = 1 << 2,
     CrashKillerDefendKVO = 1 << 3,
     CrashKillerDefendNSTimer = 1 << 4,
-    CrashKillerDefendDictionaryContainer = 1 << 4,
-    CrashKillerDefendArrayContainer = 1 << 5,
-    CrashKillerDefendStringContainer = 1 << 6,
-    CrashKillerDefendSetContainer = 1 << 7,
-    CrashKillerDefendAll = CrashKillerDefendUnrecognizedSelector | CrashKillerDefendKVC | CrashKillerDefendKVO | CrashKillerDefendNSTimer | CrashKillerDefendDictionaryContainer | CrashKillerDefendArrayContainer | CrashKillerDefendStringContainer | CrashKillerDefendSetContainer
+    CrashKillerDefendDictionaryContainer = 1 << 5,
+    CrashKillerDefendArrayContainer = 1 << 6,
+    CrashKillerDefendStringContainer = 1 << 7,
+    CrashKillerDefendSetContainer = 1 << 8,
+    CrashKillerDefendJSONSerialization = 1 << 9,
+    CrashKillerDefendAll = CrashKillerDefendUnrecognizedSelector | CrashKillerDefendKVC | CrashKillerDefendKVO | CrashKillerDefendNSTimer | CrashKillerDefendDictionaryContainer | CrashKillerDefendArrayContainer | CrashKillerDefendStringContainer | CrashKillerDefendSetContainer | CrashKillerDefendJSONSerialization
 };
 
 @protocol CrashKillerLogDelegate <NSObject>

@@ -17,6 +17,7 @@
 #import "NSMutableString+KillCrash.h"
 #import "NSSet+KillCrash.h"
 #import "NSMutableSet+KillCrash.h"
+#import "NSJSONSerialization+KillCrash.h"
 
 #if DEBUG
 BOOL crashKillerDebugLog = YES;
@@ -90,6 +91,11 @@ BOOL crashKillerDebugLog = NO;
         CrashKillerLOG(@"添加NSSet Container类型防护");
         [NSSet registerKillSet];
         [NSMutableSet registerKillNSMutableSet];
+    }
+    if (defendType & CrashKillerDefendJSONSerialization) {
+
+        CrashKillerLOG(@"添加NSJSONSerialization类型防护");
+        [NSJSONSerialization registerKillJSONSerialization];
     }
 }
 

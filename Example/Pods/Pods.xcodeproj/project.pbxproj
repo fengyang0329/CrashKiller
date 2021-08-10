@@ -30,6 +30,8 @@
 		C6B50C384DDE20ABB6B97AB57A0A94E4 /* NSObject+CrashKillerMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC18A197FD799A5F9FBA8238E671763 /* NSObject+CrashKillerMethodSwizzling.m */; };
 		C9F871B0383F2B6AD079852575439648 /* NSObject+KillKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = C10BD5E2618267B9F3350DC8E80F7534 /* NSObject+KillKVO.m */; };
 		CC757BD9C116256C93684AA40B8A56D2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		D03BC03026BBCA8B002BB6C5 /* NSJSONSerialization+KillCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = D03BC02E26BBCA8A002BB6C5 /* NSJSONSerialization+KillCrash.h */; };
+		D03BC03126BBCA8B002BB6C5 /* NSJSONSerialization+KillCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D03BC02F26BBCA8A002BB6C5 /* NSJSONSerialization+KillCrash.m */; };
 		D06483D42626CE08007F0DCC /* NSMutableArray+KillCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = D06483D22626CE08007F0DCC /* NSMutableArray+KillCrash.h */; };
 		D06483D52626CE08007F0DCC /* NSMutableArray+KillCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = D06483D32626CE08007F0DCC /* NSMutableArray+KillCrash.m */; };
 		D0923797261710F30094B18F /* NSDictionary+KillCrash.h in Headers */ = {isa = PBXBuildFile; fileRef = D0923795261710F30094B18F /* NSDictionary+KillCrash.h */; };
@@ -107,6 +109,8 @@
 		C38C0FBD3A2160B2FA01B57B0A86ADB2 /* NSTimer+KillCrash.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+KillCrash.m"; path = "CrashKiller/Classes/NSTimer+KillCrash.m"; sourceTree = "<group>"; };
 		CA2F2BE84DC5F722BA81E42348EA6DBF /* CrashKillerManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CrashKillerManager.m; path = CrashKiller/Classes/CrashKillerManager.m; sourceTree = "<group>"; };
 		CB7875B3C8EBAEA198DEC2F22092E7B5 /* CrashKiller-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "CrashKiller-Info.plist"; sourceTree = "<group>"; };
+		D03BC02E26BBCA8A002BB6C5 /* NSJSONSerialization+KillCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSJSONSerialization+KillCrash.h"; sourceTree = "<group>"; };
+		D03BC02F26BBCA8A002BB6C5 /* NSJSONSerialization+KillCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSJSONSerialization+KillCrash.m"; sourceTree = "<group>"; };
 		D06483D22626CE08007F0DCC /* NSMutableArray+KillCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+KillCrash.h"; sourceTree = "<group>"; };
 		D06483D32626CE08007F0DCC /* NSMutableArray+KillCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+KillCrash.m"; sourceTree = "<group>"; };
 		D0923795261710F30094B18F /* NSDictionary+KillCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+KillCrash.h"; sourceTree = "<group>"; };
@@ -311,6 +315,8 @@
 				D0AF78EB26971D5E007713FB /* NSMutableSet+KillCrash.m */,
 				D0AF78F5269880DA007713FB /* NSURL+KillCrash.h */,
 				D0AF78F6269880DA007713FB /* NSURL+KillCrash.m */,
+				D03BC02E26BBCA8A002BB6C5 /* NSJSONSerialization+KillCrash.h */,
+				D03BC02F26BBCA8A002BB6C5 /* NSJSONSerialization+KillCrash.m */,
 			);
 			name = Container;
 			path = CrashKiller/Classes/Container;
@@ -352,6 +358,7 @@
 			files = (
 				D0AF78E826971D4C007713FB /* NSSet+KillCrash.h in Headers */,
 				9B9F62C11B63C38981C37137CEA8D80F /* CrashKiller-umbrella.h in Headers */,
+				D03BC03026BBCA8B002BB6C5 /* NSJSONSerialization+KillCrash.h in Headers */,
 				D0AF78F7269880DA007713FB /* NSURL+KillCrash.h in Headers */,
 				D06483D42626CE08007F0DCC /* NSMutableArray+KillCrash.h in Headers */,
 				D7E5A5EFDA90BBBD404CF6DECE882E77 /* CrashKiller.h in Headers */,
@@ -504,6 +511,7 @@
 				D06483D52626CE08007F0DCC /* NSMutableArray+KillCrash.m in Sources */,
 				B53A5FD7CCA536C15D05DAAD93890E02 /* NSObject+KillSelector.m in Sources */,
 				15C372A78D2C8423D28F0A0AD93547AA /* NSTimer+KillCrash.m in Sources */,
+				D03BC03126BBCA8B002BB6C5 /* NSJSONSerialization+KillCrash.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,7 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		8E0EFC858E1664A90EFDB88D /* Pods_CrashKiller_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986547F29C1E09F8F4475AAE /* Pods_CrashKiller_Tests.framework */; };
+		D03BC03426BBEAD9002BB6C5 /* TestJSONSerializationCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D03BC03326BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.m */; };
 		D06483C42625413B007F0DCC /* TestArrayCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D06483C32625413B007F0DCC /* TestArrayCrashVC.m */; };
 		D06483CF26259CF8007F0DCC /* TestStringCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D06483CE26259CF8007F0DCC /* TestStringCrashVC.m */; };
 		D092373A2615A89A0094B18F /* CrashObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D09237392615A89A0094B18F /* CrashObject.m */; };
@@ -77,6 +78,8 @@
 		B51432B38FFF2B475D8792C7 /* Pods-CrashKiller_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Example.release.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Example/Pods-CrashKiller_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BBB326CC56B3473D91FA9454 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BF7C78F9904A5C78D546AA07 /* Pods-CrashKiller_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Example.debug.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Example/Pods-CrashKiller_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D03BC03226BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestJSONSerializationCrashVC.h; sourceTree = "<group>"; };
+		D03BC03326BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestJSONSerializationCrashVC.m; sourceTree = "<group>"; };
 		D06483C22625413B007F0DCC /* TestArrayCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestArrayCrashVC.h; sourceTree = "<group>"; };
 		D06483C32625413B007F0DCC /* TestArrayCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestArrayCrashVC.m; sourceTree = "<group>"; };
 		D06483CD26259CF8007F0DCC /* TestStringCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestStringCrashVC.h; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				D0AF78F3269876AA007713FB /* TestSetCrashVC.m */,
 				D0AF78F92698812F007713FB /* TestUrlCrashVC.h */,
 				D0AF78FA2698812F007713FB /* TestUrlCrashVC.m */,
+				D03BC03226BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.h */,
+				D03BC03326BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.m */,
 			);
 			name = Container;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				D0AF78F4269876AA007713FB /* TestSetCrashVC.m in Sources */,
 				D092376C2616FE480094B18F /* TestKVOCrashVC.m in Sources */,
 				D09237612616C1700094B18F /* TestTimerCrashVC.m in Sources */,
+				D03BC03426BBEAD9002BB6C5 /* TestJSONSerializationCrashVC.m in Sources */,
 				6003F59E195388D20070C39A /* KILLAppDelegate.m in Sources */,
 				D06483CF26259CF8007F0DCC /* TestStringCrashVC.m in Sources */,
 				D0AF78FB2698812F007713FB /* TestUrlCrashVC.m in Sources */,
