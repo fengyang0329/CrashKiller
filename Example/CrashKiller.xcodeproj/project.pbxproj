@@ -24,6 +24,8 @@
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		8E0EFC858E1664A90EFDB88D /* Pods_CrashKiller_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 986547F29C1E09F8F4475AAE /* Pods_CrashKiller_Tests.framework */; };
+		D001F38726EB0520005F08EA /* TestFileManagerCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D001F38626EB0520005F08EA /* TestFileManagerCrashVC.m */; };
+		D001F38D26EB3F1B005F08EA /* aa.txt in Resources */ = {isa = PBXBuildFile; fileRef = D001F38C26EB3F1B005F08EA /* aa.txt */; };
 		D03BC03426BBEAD9002BB6C5 /* TestJSONSerializationCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D03BC03326BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.m */; };
 		D06483C42625413B007F0DCC /* TestArrayCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D06483C32625413B007F0DCC /* TestArrayCrashVC.m */; };
 		D06483CF26259CF8007F0DCC /* TestStringCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D06483CE26259CF8007F0DCC /* TestStringCrashVC.m */; };
@@ -38,6 +40,7 @@
 		D0AF78F12697249B007713FB /* BaseTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AF78EF2697249B007713FB /* BaseTestViewController.m */; };
 		D0AF78F4269876AA007713FB /* TestSetCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AF78F3269876AA007713FB /* TestSetCrashVC.m */; };
 		D0AF78FB2698812F007713FB /* TestUrlCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AF78FA2698812F007713FB /* TestUrlCrashVC.m */; };
+		D0F1202226EDA5EE00B29A9A /* TestDataCrashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F1202126EDA5EE00B29A9A /* TestDataCrashVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		B51432B38FFF2B475D8792C7 /* Pods-CrashKiller_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Example.release.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Example/Pods-CrashKiller_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BBB326CC56B3473D91FA9454 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BF7C78F9904A5C78D546AA07 /* Pods-CrashKiller_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Example.debug.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Example/Pods-CrashKiller_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		D001F38526EB0520005F08EA /* TestFileManagerCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFileManagerCrashVC.h; sourceTree = "<group>"; };
+		D001F38626EB0520005F08EA /* TestFileManagerCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestFileManagerCrashVC.m; sourceTree = "<group>"; };
+		D001F38C26EB3F1B005F08EA /* aa.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aa.txt; sourceTree = "<group>"; };
 		D03BC03226BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestJSONSerializationCrashVC.h; sourceTree = "<group>"; };
 		D03BC03326BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestJSONSerializationCrashVC.m; sourceTree = "<group>"; };
 		D06483C22625413B007F0DCC /* TestArrayCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestArrayCrashVC.h; sourceTree = "<group>"; };
@@ -106,6 +112,8 @@
 		D0AF78F3269876AA007713FB /* TestSetCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestSetCrashVC.m; sourceTree = "<group>"; };
 		D0AF78F92698812F007713FB /* TestUrlCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestUrlCrashVC.h; sourceTree = "<group>"; };
 		D0AF78FA2698812F007713FB /* TestUrlCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUrlCrashVC.m; sourceTree = "<group>"; };
+		D0F1202026EDA5EE00B29A9A /* TestDataCrashVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDataCrashVC.h; sourceTree = "<group>"; };
+		D0F1202126EDA5EE00B29A9A /* TestDataCrashVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDataCrashVC.m; sourceTree = "<group>"; };
 		D1B090E95C700B2A3C1C2F18 /* Pods-CrashKiller_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Tests.debug.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Tests/Pods-CrashKiller_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB024CCE0DDD6A4B6A8E8DD8 /* Pods-CrashKiller_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrashKiller_Tests.release.xcconfig"; path = "Target Support Files/Pods-CrashKiller_Tests/Pods-CrashKiller_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		FBC4829D18C08BCD2967C17B /* CrashKiller.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CrashKiller.podspec; path = ../CrashKiller.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -183,6 +191,7 @@
 				D09237392615A89A0094B18F /* CrashObject.m */,
 				D092374D2615C9D40094B18F /* MOPerson.h */,
 				D092374E2615C9D40094B18F /* MOPerson.m */,
+				D001F38C26EB3F1B005F08EA /* aa.txt */,
 				D0AF78EE26972482007713FB /* ViewController */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -285,6 +294,10 @@
 				D0AF78FA2698812F007713FB /* TestUrlCrashVC.m */,
 				D03BC03226BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.h */,
 				D03BC03326BBEAD8002BB6C5 /* TestJSONSerializationCrashVC.m */,
+				D001F38526EB0520005F08EA /* TestFileManagerCrashVC.h */,
+				D001F38626EB0520005F08EA /* TestFileManagerCrashVC.m */,
+				D0F1202026EDA5EE00B29A9A /* TestDataCrashVC.h */,
+				D0F1202126EDA5EE00B29A9A /* TestDataCrashVC.m */,
 			);
 			name = Container;
 			sourceTree = "<group>";
@@ -399,6 +412,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D001F38D26EB3F1B005F08EA /* aa.txt in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -486,9 +500,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D001F38726EB0520005F08EA /* TestFileManagerCrashVC.m in Sources */,
 				D092373A2615A89A0094B18F /* CrashObject.m in Sources */,
 				D09237742617014B0094B18F /* TestKVCCrashVC.m in Sources */,
 				D092374F2615C9D40094B18F /* MOPerson.m in Sources */,
+				D0F1202226EDA5EE00B29A9A /* TestDataCrashVC.m in Sources */,
 				D0AF78F4269876AA007713FB /* TestSetCrashVC.m in Sources */,
 				D092376C2616FE480094B18F /* TestKVOCrashVC.m in Sources */,
 				D09237612616C1700094B18F /* TestTimerCrashVC.m in Sources */,

@@ -18,6 +18,9 @@
 #import "NSSet+KillCrash.h"
 #import "NSMutableSet+KillCrash.h"
 #import "NSJSONSerialization+KillCrash.h"
+#import "NSFileManager+KillCrash.h"
+#import "NSFileHandle+KillCrash.h"
+#import "NSData+KillCrash.h"
 
 #if DEBUG
 BOOL crashKillerDebugLog = YES;
@@ -97,6 +100,22 @@ BOOL crashKillerDebugLog = NO;
         CrashKillerLOG(@"添加NSJSONSerialization类型防护");
         [NSJSONSerialization registerKillJSONSerialization];
     }
+    if (defendType & CrashKillerDefendNSFileManager) {
+
+        CrashKillerLOG(@"添加NSFileManager类型防护");
+        [NSFileManager registerKillFileManager];
+    }
+    if (defendType & CrashKillerDefendNSFileHandle) {
+
+        CrashKillerLOG(@"添加NSFileHandle类型防护");
+        [NSFileHandle registerKillFileHandle];
+    }
+    if (defendType & CrashKillerDefendDataContainer) {
+
+        CrashKillerLOG(@"添加NSData类型防护");
+        [NSData registerKillData];
+    }
+
 }
 
 

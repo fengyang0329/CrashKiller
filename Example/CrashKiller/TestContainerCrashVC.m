@@ -51,7 +51,16 @@
         @{
             @"title" : @"NSJSONSerialization Crash",
             @"class" : @"TestJSONSerializationCrashVC"
+        },
+        @{
+            @"title" : @"NSFileManager Crash",
+            @"class" : @"TestFileManagerCrashVC"
+        },
+        @{
+            @"title" : @"NSData Crash",
+            @"class" : @"TestDataCrashVC"
         }
+
     ];
 }
 /*
