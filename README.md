@@ -30,10 +30,15 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
     CrashKillerDefendKVC = 1 << 2,
     CrashKillerDefendKVO = 1 << 3,
     CrashKillerDefendNSTimer = 1 << 4,
-    CrashKillerDefendDictionaryContainer = 1 << 4,
-    CrashKillerDefendArrayContainer = 1 << 5,
-    CrashKillerDefendStringContainer = 1 << 6,
-    CrashKillerDefendAll = CrashKillerDefendUnrecognizedSelector | CrashKillerDefendKVC | CrashKillerDefendKVO | CrashKillerDefendNSTimer | CrashKillerDefendDictionaryContainer | CrashKillerDefendArrayContainer | CrashKillerDefendStringContainer
+    CrashKillerDefendDictionaryContainer = 1 << 5,
+    CrashKillerDefendArrayContainer = 1 << 6,
+    CrashKillerDefendStringContainer = 1 << 7,
+    CrashKillerDefendSetContainer = 1 << 8,
+    CrashKillerDefendJSONSerialization = 1 << 9,
+    CrashKillerDefendNSFileManager = 1 << 10,
+    CrashKillerDefendNSFileHandle = 1 << 11,
+    CrashKillerDefendDataContainer = 1 << 12,
+    CrashKillerDefendAll = CrashKillerDefendUnrecognizedSelector | CrashKillerDefendKVC | CrashKillerDefendKVO | CrashKillerDefendNSTimer | CrashKillerDefendDictionaryContainer | CrashKillerDefendArrayContainer | CrashKillerDefendStringContainer | CrashKillerDefendSetContainer | CrashKillerDefendJSONSerialization | CrashKillerDefendNSFileManager | CrashKillerDefendNSFileHandle | CrashKillerDefendDataContainer
 };
 ```
 
@@ -60,13 +65,24 @@ CrashKiller.terminateWhenException = YES;
 CrashKiller.debugLog = NO;
 ```
 
+### 如果有些类不需要添加防护，可设置白名单
+
+```js
+/*
+ 类名白名单
+ 白名单里的类中方法不做处理，相当于这个类关闭了CrashKillerDefendUnrecognizedSelector防护功能
+ [CrashKiller addSelectorClassWhiteList:@[NSClassFromString(@"MAUserLocation")]];
+ */
++ (void)addSelectorClassWhiteList:(NSArray*)objects;
+```
+
 ### 如果需要记录日志，注册协议并实现`CrashKillerLogDelegate`
 
 ```js
 [CrashKiller handleCrashLog:(id<CrashKillerLogDelegate>)self];
-- (void)onLog:(NSString*)log callStackSymbols:(NSArray <NSString *> *)callStackSymbols;
+- (void)onLog:(NSException *)exception
 {
-    NSLog(@"%@\n   *** First throw call stack:%@",log,callStackSymbols);
+    NSLog(@"%@\n   *** First throw call stack:%@",exception.reason,exception.callStackSymbols);
 }
 ```
 
@@ -90,7 +106,7 @@ CrashKiller.debugLog = NO;
 	1. 注册了没有主动释放，会导致内存泄露，多线程中有可能会闪退 <br>
 - [x] NSNull
 	1. null类型调用其他类型（如NSString,NSNumber）方法，找不到方法 <br>
-- [x] NSArray,NSMutableArray,NSDictonary,NSMutableDictionary,NSString,NSMutableString
+- [x] NSArray,NSMutableArray,NSDictonary,NSMutableDictionary,NSString,NSMutableString，NSSet，NSMutableSet，NSJSONSerialization，NSFileManager，NSFileHandle，NSData
 	1. 数组越界，参数为nil等
 
 

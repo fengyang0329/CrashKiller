@@ -58,7 +58,7 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
 
 /*
  类名白名单
- 白名单里的类不做处理
+ 白名单里的类中方法不做处理，相当于这个类关闭了CrashKillerDefendUnrecognizedSelector防护功能
  [CrashKiller addSelectorClassWhiteList:@[NSClassFromString(@"MAUserLocation")]];
  */
 + (void)addSelectorClassWhiteList:(NSArray*)objects;
