@@ -68,6 +68,10 @@ typedef NS_OPTIONS(NSUInteger, CrashKillerDefendCrashType) {
 */
 + (void)start;
 
+/*
+ 停止崩溃防护
+ */
++ (void)stop;
 
 /*
  打印log的回调代理
