@@ -243,7 +243,12 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
             [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
         }
     } else {
-        [self crashKiller_removeObserver:observer forKeyPath:keyPath context:context];
+
+        @try {
+            [self crashKiller_removeObserver:observer forKeyPath:keyPath context:context];
+        } @catch (NSException *exception) {
+            [[CrashKillerManager shareManager] printLogWithException:exception];
+        }
     }
 }
 
@@ -264,7 +269,11 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
             [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
         }
     } else {
-        [self crashKiller_removeObserver:observer forKeyPath:keyPath];
+        @try {
+            [self crashKiller_removeObserver:observer forKeyPath:keyPath];
+        } @catch (NSException *exception) {
+            [[CrashKillerManager shareManager] printLogWithException:exception];
+        }
     }
 
 }
