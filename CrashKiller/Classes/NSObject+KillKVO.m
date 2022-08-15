@@ -300,7 +300,11 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
             }
         }
     }
-    [self crashKiller_kvodealloc];
+    @try {
+        [self crashKiller_kvodealloc];
+    } @catch (NSException *exception) {
+        [[CrashKillerManager shareManager] printLogWithException:exception];
+    }
 }
 
 
