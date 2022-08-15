@@ -121,24 +121,25 @@
                       ofObject:(id)object
                         change:(NSDictionary<NSKeyValueChangeKey,id> *)change
                        context:(void *)context {
-
-    NSHashTable<NSObject *> *info = _kvoInfoMap[keyPath];
-    for (NSObject *observer in info) {
-        @try {
-            [observer observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-        } @catch (NSException *exception) {
-
-            /*
-             reason: '<CrashObject: 0x600002871680>: An -observeValueForKeyPath:ofObject:change:context: message was received but not handled.
-             Key path: title
-             Observed object: <TestKVOCrashVC: 0x7fbb9500f830>
-             Change: {
+    @synchronized (self) {
+        NSHashTable<NSObject *> *info = _kvoInfoMap[keyPath];
+        for (NSObject *observer in info) {
+            @try {
+                [observer observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+            } @catch (NSException *exception) {
+                
+                /*
+                 reason: '<CrashObject: 0x600002871680>: An -observeValueForKeyPath:ofObject:change:context: message was received but not handled.
+                 Key path: title
+                 Observed object: <TestKVOCrashVC: 0x7fbb9500f830>
+                 Change: {
                  kind = 1;
                  new = 111;
-             }
-             Context: 0x0'
-             */
-            [[CrashKillerManager shareManager] printLogWithException:exception];
+                 }
+                 Context: 0x0'
+                 */
+                [[CrashKillerManager shareManager] printLogWithException:exception];
+            }
         }
     }
 }
@@ -284,15 +285,17 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
         if (!isSystemClass(self.class)) {
             NSString *value = (NSString *)objc_getAssociatedObject(self, CrashKillerKVODefenderKey);
             if ([value isEqualToString:CrashKillerKVODefenderValue]) {
-                NSArray *keyPaths =  [self.crashKillerKVOProxy getAllKeyPaths];
-                // 被观察者在 dealloc 时仍然注册着 KVO
-                if (keyPaths.count > 0) {
-                    NSString *reason = [NSString stringWithFormat:@"An instance %@ was deallocated while key value observers were still registered with it. The Keypaths is:'%@' ***", self, [keyPaths componentsJoinedByString:@","]];
-                    [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
-                }
-                // 移除多余的观察者
-                for (NSString *keyPath in keyPaths) {
-                    [self crashKiller_removeObserver:self.crashKillerKVOProxy forKeyPath:keyPath];
+                @synchronized (self) {
+                    NSArray *keyPaths =  [self.crashKillerKVOProxy getAllKeyPaths];
+                    // 被观察者在 dealloc 时仍然注册着 KVO
+                    if (keyPaths.count > 0) {
+                        NSString *reason = [NSString stringWithFormat:@"An instance %@ was deallocated while key value observers were still registered with it. The Keypaths is:'%@' ***", self, [keyPaths componentsJoinedByString:@","]];
+                        [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
+                    }
+                    // 移除多余的观察者
+                    for (NSString *keyPath in keyPaths) {
+                        [self crashKiller_removeObserver:self.crashKillerKVOProxy forKeyPath:keyPath];
+                    }
                 }
             }
         }
