@@ -222,7 +222,7 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
                 reason = [NSString stringWithFormat:@"*** Crash Message: Cannot add an observer:%@ for the key path:'%@' from %@",
                           observer, keyPath, self];
             }
-            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
+//            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
         }
     } else {
         [self crashKiller_addObserver:observer forKeyPath:keyPath options:options context:context];
@@ -241,7 +241,7 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
         } else {
             // 移除 KVO 信息操作失败：移除了未注册的观察者
             NSString *reason = [NSString stringWithFormat:@"Cannot remove an observer %@ for the key path '%@' from %@ because it is not registered as an observer.",observer,keyPath,self];
-            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
+//            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
         }
     } else {
 
@@ -267,7 +267,7 @@ static void *CrashKillerKVODefenderKey = &CrashKillerKVODefenderKey;
              reason: 'Cannot remove an observer <TestKVOCrashVC 0x7f8ac370cd90> for the key path "name" from <CrashObject 0x600000b84fe0> because it is not registered as an observer.'
              */
             NSString *reason = [NSString stringWithFormat:@"Cannot remove an observer %@ for the key path '%@' from %@ because it is not registered as an observer.",observer,keyPath,self];
-            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
+//            [[CrashKillerManager shareManager] throwExceptionWithName:@"NSRangeException" reason:reason];
         }
     } else {
         @try {
