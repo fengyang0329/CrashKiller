@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CrashKiller'
-  s.version          = '0.2.4'
-  s.summary          = 'A short description of CrashKiller.'
+  s.version          = '1.0.0'
+  s.summary          = 'CrashKiller（闪退杀手）.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,20 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+此防护系统并不能解决所有的崩溃类型，只是对一些[高频crash](#高频crash)进行一一的处理，我们的目的就是降低crash率.
                        DESC
 
-  s.homepage         = 'git@gitlab.mypaas.com.cn:appcloud/cocoapods/CrashKiller'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/fengyang0329/CrashKiller.git'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'fengyang0329' => 'longzh@mysoft.com.cn' }
-  s.source           = { :git => 'git@gitlab.mypaas.com.cn:appcloud/cocoapods/CrashKiller.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'fengyang0329' => '599086054@qq.com' }
+  s.source           = { :git => 'https://github.com/fengyang0329/CrashKiller.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'CrashKiller/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'CrashKiller' => ['CrashKiller/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-   s.frameworks = 'UIKit', 'Foundation'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = 'CrashKiller/Classes/**/*.h'
+  s.frameworks = 'UIKit', 'Foundation'
+  s.prefix_header_file = false
+
 end

@@ -35,7 +35,8 @@
                     @"1.3 重复添加多次，被观察多次。",
                     @"2. 被观察者 dealloc 时仍然注册着 KVO",
                     @"3. 观察者没有实现观察方法",
-                    @"4. 添加或者移除时 keypath == nil"
+                    @"4. 添加或者移除时 keypath == nil",
+                    @"5. 添加了观察者未移除"
                     ];
 
     self.objc = [[CrashObject alloc] init];
@@ -86,6 +87,9 @@
             break;
         case 1005: {
             [self testKVOCrash4];
+        }
+        case 1006: {
+            [self testKVOCrash5];
         }
         default:
             break;
@@ -169,6 +173,16 @@
     NSLog(@"object = %@, keyPath = %@", object, keyPath);
 }
 
+- (void)testKVOCrash5
+{
+    [self.objc addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:NULL];
+    self.objc.name = @"zhangsan";
+    NSLog(@"添加观察者，并更改值");
+}
+- (void)dealloc
+{
+    NSLog(@"%s",__FUNCTION__);
+}
 /*
 #pragma mark - Navigation
 
