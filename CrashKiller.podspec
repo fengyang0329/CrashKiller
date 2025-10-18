@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CrashKiller'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'CrashKiller（闪退杀手）.'
 
 # This description is used to generate tags and improve search results.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 此防护系统并不能解决所有的崩溃类型，只是对一些[高频crash](#高频crash)进行一一的处理，我们的目的就是降低crash率.
                        DESC
 
-  s.homepage         = 'https://github.com/fengyang0329/CrashKiller.git'
+  s.homepage         = 'https://github.com/fengyang0329/CrashKiller'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'fengyang0329' => '599086054@qq.com' }
   s.source           = { :git => 'https://github.com/fengyang0329/CrashKiller.git', :tag => s.version.to_s }
