@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CrashKiller'
-  s.version          = '1.0.1'
-  s.summary          = 'CrashKiller（闪退杀手）.'
+  s.version          = '1.0.2'
+  s.summary          = '针对一些高频常见Crash进行防护.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-此防护系统并不能解决所有的崩溃类型，只是对一些[高频crash](#高频crash)进行一一的处理，我们的目的就是降低crash率.
+这个防护系统不能解决所有崩溃问题，但针对一些常见高频 Crash，我们提供了专门的处理。目标很简单：让你的 App 更稳定，Crash 率更低.
                        DESC
 
   s.homepage         = 'https://github.com/fengyang0329/CrashKiller'

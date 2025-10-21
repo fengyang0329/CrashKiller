@@ -31,19 +31,32 @@
 
 // 判断是否是系统类
 static inline BOOL isSystemClass(Class cls) {
-    BOOL isSystem = NO;
+    
+    // NSProxy 子类也视为系统代理类
+    if ([cls isSubclassOfClass:[NSProxy class]]) {
+        return YES;
+    }
+    
     NSString *className = NSStringFromClass(cls);
+    // 忽略前导点（动态生成类可能有 .. 前缀）,去掉开头连续的点
+    NSCharacterSet *dotSet = [NSCharacterSet characterSetWithCharactersInString:@"."];
+    NSRange firstNonDot = [className rangeOfCharacterFromSet:[dotSet invertedSet]];
+    if (firstNonDot.location != NSNotFound) {
+        className = [className substringFromIndex:firstNonDot.location];
+    }
+    
+    // 系统类前缀
     if ([className hasPrefix:@"NS"] || [className hasPrefix:@"__NS"] || [className hasPrefix:@"OS_xpc"]) {
-        isSystem = YES;
-        return isSystem;
+        return YES;
     }
-    NSBundle *mainBundle = [NSBundle bundleForClass:cls];
-    if (mainBundle == [NSBundle mainBundle]) {
-        isSystem = NO;
-    }else{
-        isSystem = YES;
+    
+    // 非主 bundle 也认为是系统/第三方类，可根据需求调整
+    NSBundle *bundle = [NSBundle bundleForClass:cls];
+    if (bundle != [NSBundle mainBundle]) {
+        return YES;
     }
-    return isSystem;
+    
+    return NO;
 }
 
 /**
